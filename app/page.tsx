@@ -7,7 +7,7 @@ export default function Home() {
       <h1 className="text-6xl font-bold">Notes App</h1>
       <p className="text-neutral-400 text-center">Organiza tus notas</p>
       <Button asChild>
-        <Link href="/dashboard">Ir a mi espacio</Link>
+        <Link href="/my-notes">Ir a mi espacio</Link>
       </Button>
     </main>
   );
