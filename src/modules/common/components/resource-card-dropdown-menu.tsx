@@ -34,7 +34,7 @@ export function ResourceCardDropdownMenu({ resourceId }: Props) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="secondary" size="icon">
+        <Button variant="secondary" size="icon-sm">
           <EllipsisVertical />
         </Button>
       </DropdownMenuTrigger>

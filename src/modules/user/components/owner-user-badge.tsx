@@ -15,15 +15,15 @@ export function OwnerUserBadge({ fullName, userName, email }: Props) {
   return (
     <Tooltip>
       <TooltipTrigger>
-        <Badge variant="default" className="px-1 py-0.5">
-          @{userName}
+        <Badge variant="default">
+          <small>@{userName}</small>
         </Badge>
       </TooltipTrigger>
       <TooltipContent>
-        <p className="italic font-medium">
-          <span className="not-italic font-normal text-muted-foreground">
+        <p className="font-medium">
+          <small className="italic font-normal text-muted-foreground">
             Propietario:
-          </span>{" "}
+          </small>{" "}
           <br />
           {fullName}
           <br />({email})

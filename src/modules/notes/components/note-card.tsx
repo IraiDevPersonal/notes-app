@@ -7,12 +7,28 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { NoteCardDropdownMenu } from "./note-card-drpdown-menu";
+import { OwnerUserBadge } from "@/modules/user/components/owner-user-badge";
+import { SharedUsersCount } from "@/modules/user/components/shared-users-count";
+import { ResourceDatetimes } from "@/modules/common/components/resource-datetimes";
+import { ResourceCommentsCount } from "@/modules/common/components/resource-comments-count";
 
 export function NoteCard() {
   return (
-    <Card>
+    <Card className="h-full">
       <CardHeader>
-        <CardTitle>Nota 1</CardTitle>
+        <div>
+          <CardTitle>Nota 1</CardTitle>
+          <div className="flex items-center gap-x-0.5 mt-2">
+            <OwnerUserBadge
+              fullName="Usuario User"
+              userName="usuario"
+              email="usuario@email.com"
+            />
+            <SharedUsersCount />
+            <ResourceDatetimes />
+            <ResourceCommentsCount />
+          </div>
+        </div>
         <CardAction>
           <NoteCardDropdownMenu />
         </CardAction>
