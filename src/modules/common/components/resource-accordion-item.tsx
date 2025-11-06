@@ -3,9 +3,11 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { cn } from "@/lib/utils";
 
 type Props = {
-  id: "folders" | "notes";
+  className?: string;
+  value: "folders" | "notes";
   children: React.ReactNode;
 };
 
@@ -14,13 +16,15 @@ const TITLES = {
   notes: "Notas",
 };
 
-export function ResourceAccordionItem({ id, children }: Props) {
+export function ResourceAccordionItem({ value, children, className }: Props) {
   return (
-    <AccordionItem value={id}>
+    <AccordionItem value={value}>
       <AccordionTrigger className="text-muted-foreground hover:no-underline hover:text-foreground font-normal hover:[&_svg]:text-foreground [&_svg]:transition-colors">
-        {TITLES[id]}
+        {TITLES[value]}
       </AccordionTrigger>
-      <AccordionContent className="space-y-2">{children}</AccordionContent>
+      <AccordionContent className={cn("space-y-2", className)}>
+        {children}
+      </AccordionContent>
     </AccordionItem>
   );
 }

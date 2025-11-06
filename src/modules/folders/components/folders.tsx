@@ -3,7 +3,7 @@ import { FolderCard } from "./folder-card";
 
 export function Folders() {
   return (
-    <ResourceAccordionItem id="folders">
+    <ResourceAccordionItem value="folders">
       <FolderCard />
       <FolderCard />
       <FolderCard />

@@ -2,6 +2,7 @@ import { Card, CardAction, CardContent, CardTitle } from "@/components/ui/card";
 import { SharedUsersCount } from "@/modules/user/components/shared-users-count";
 import { Folder } from "lucide-react";
 import { FolderCardDropdownMenu } from "./folder-card-dropdown-menu";
+import { OwnerUserBadge } from "@/modules/user/components/owner-user-badge";
 
 export function FolderCard() {
   return (
@@ -12,6 +13,11 @@ export function FolderCard() {
           <CardTitle className="flex-1">Carpeta 1</CardTitle>
         </div>
         <div className="flex items-center gap-x-0.5 mt-1">
+          <OwnerUserBadge
+            fullName="Usuario User"
+            userName="usuario"
+            email="usuario@email.com"
+          />
           <SharedUsersCount />
           <small className="text-[0.65rem] italic text-muted-foreground">
             10-10-2025
