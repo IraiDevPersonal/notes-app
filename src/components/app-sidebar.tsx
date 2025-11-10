@@ -16,18 +16,18 @@ import { ROUTE_TITLES } from "@/lib/routes/titles";
 
 const routes = [
   {
-    href: ROUTES.MY_NOTES,
-    label: ROUTE_TITLES[ROUTES.MY_NOTES],
+    href: ROUTES.MY_SPACE,
+    label: ROUTE_TITLES[ROUTES.MY_SPACE],
     icon: UserLock,
   },
   {
-    href: ROUTES.SHARED_NOTES,
-    label: ROUTE_TITLES[ROUTES.SHARED_NOTES],
+    href: ROUTES.SHARED,
+    label: ROUTE_TITLES[ROUTES.SHARED],
     icon: Share2,
   },
   {
-    href: ROUTES.FAVORITE_NOTES,
-    label: ROUTE_TITLES[ROUTES.FAVORITE_NOTES],
+    href: ROUTES.FAVORITES,
+    label: ROUTE_TITLES[ROUTES.FAVORITES],
     icon: Star,
   },
   {

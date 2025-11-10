@@ -11,6 +11,7 @@ export function NoteCardDropdownMenu({ ref }: Props) {
   return (
     <ResourceCardDropdownMenu
       resourceId="asdasdasd-asdasdasdas-asdasdasd-123123"
+      type="note"
       ref={ref}
     />
   );

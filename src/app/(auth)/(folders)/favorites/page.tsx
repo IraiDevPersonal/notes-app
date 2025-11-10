@@ -4,6 +4,6 @@ export const metadata: Metadata = {
   title: "Favoritos",
 };
 
-export default function FavoriteNotesPage() {
-  return <div></div>;
+export default function FavoritesPage() {
+  return <div>Favorites</div>;
 }

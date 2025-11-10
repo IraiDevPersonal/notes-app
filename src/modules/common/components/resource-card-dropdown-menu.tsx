@@ -24,14 +24,16 @@ import { useImperativeHandle, useState } from "react";
 import { ResourceCardDropdownMenuRefObject } from "../types";
 
 type Props = {
-  resourceId: string;
   ref?: React.RefObject<ResourceCardDropdownMenuRefObject>;
+  type: "note" | "folder";
+  resourceId: string;
 };
 
-export function ResourceCardDropdownMenu({ resourceId, ref }: Props) {
+export function ResourceCardDropdownMenu({ resourceId, ref, type }: Props) {
   const [isFavorite, setIsFavorite] = useState(false);
   const pathname = usePathname();
-  const href = `${pathname}/${resourceId}`;
+  const href =
+    type === "note" ? `note/${resourceId}` : `${pathname}/${resourceId}`;
   const [isOpen, setIsOpen] = useState(false);
 
   useImperativeHandle(ref, () => ({

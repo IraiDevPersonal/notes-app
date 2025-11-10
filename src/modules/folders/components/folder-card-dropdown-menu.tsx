@@ -11,6 +11,7 @@ export function FolderCardDropdownMenu({ ref }: Props) {
   return (
     <ResourceCardDropdownMenu
       resourceId="asdasdasd-asdasd-asdasd-123123123"
+      type="folder"
       ref={ref}
     />
   );
