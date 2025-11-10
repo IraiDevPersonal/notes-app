@@ -1,3 +1,5 @@
+"use client";
+
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { Grid, List } from "lucide-react";
 import { useResourceViewMode } from "../context/resource-view-mode.context";

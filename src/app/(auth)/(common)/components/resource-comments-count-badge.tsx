@@ -5,7 +5,7 @@ export function ResourceCommentsCountBadge() {
   return (
     <Badge variant="accent">
       <MessageSquareQuote />
-      <small>0</small>
+      <small className="text-muted-foreground italic">0</small>
     </Badge>
   );
 }

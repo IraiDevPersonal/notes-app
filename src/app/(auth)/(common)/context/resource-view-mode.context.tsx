@@ -12,12 +12,13 @@ const ResourceViewModeContext = createContext<ContextProps | undefined>(
   undefined
 );
 
-export function ResourceViewModeProvider({
-  children,
-}: Readonly<{
+type Props = {
   children: React.ReactNode;
-}>) {
-  const [viewMode, setViewMode] = useState<ViewMode>("grid");
+  defaultViewMode?: ViewMode;
+};
+
+export function ResourceViewModeProvider({ children, defaultViewMode }: Props) {
+  const [viewMode, setViewMode] = useState<ViewMode>(defaultViewMode ?? "grid");
   const onViewModeChange = useCallback(
     (viewMode: ViewMode) => {
       setViewMode(viewMode);
