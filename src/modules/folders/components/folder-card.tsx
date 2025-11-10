@@ -1,13 +1,34 @@
-import { Card, CardAction, CardContent, CardTitle } from "@/components/ui/card";
-import { SharedUsersCount } from "@/modules/user/components/shared-users-count";
+import {
+  Card,
+  CardAction,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { SharedUsersCountBadge } from "@/modules/user/components/shared-users-count-badge";
 import { Folder } from "lucide-react";
 import { FolderCardDropdownMenu } from "./folder-card-dropdown-menu";
 import { OwnerUserBadge } from "@/modules/user/components/owner-user-badge";
-import { ResourceDatetimes } from "@/modules/common/components/resource-datetimes";
+import { ResourceDatetimesBadge } from "@/modules/common/components/resource-datetimes-badge";
+import { ViewMode } from "@/modules/common/types/view-mode";
+import { ResourceCommentsCountBadge } from "@/modules/common/components/resource-comments-count-badge";
+import { useResourceCardDropdownMenuRefHandler } from "@/modules/common/hooks/use-resource-card-dropdwon-menu-ref-handler";
 
-export function FolderCard() {
+type Props = {
+  viewMode?: ViewMode;
+};
+
+export function FolderCard({ viewMode = "list" }: Props) {
+  return viewMode === "list" ? <FolderListItem /> : <FolderGridItem />;
+}
+
+function FolderListItem() {
+  const { ref, onContextMenu } = useResourceCardDropdownMenuRefHandler();
   return (
-    <Card className="flex-row justify-between items-center">
+    <Card
+      className="flex-row justify-between items-center"
+      onContextMenu={onContextMenu}
+    >
       <CardContent>
         <div className="flex items-center gap-x-2">
           <Folder size={20} />
@@ -19,13 +40,41 @@ export function FolderCard() {
             userName="usuario"
             email="usuario@email.com"
           />
-          <SharedUsersCount />
-          <ResourceDatetimes />
+          <SharedUsersCountBadge />
+          <ResourceDatetimesBadge />
+          <ResourceCommentsCountBadge />
         </div>
       </CardContent>
       <CardAction className="self-center pe-4">
-        <FolderCardDropdownMenu />
+        <FolderCardDropdownMenu ref={ref} />
       </CardAction>
+    </Card>
+  );
+}
+
+function FolderGridItem() {
+  const { ref, onContextMenu } = useResourceCardDropdownMenuRefHandler();
+  return (
+    <Card onContextMenu={onContextMenu}>
+      <CardHeader className="mb-2">
+        <div className="flex justify-center">
+          <Folder size={120} strokeWidth={0.5} />
+        </div>
+        <CardTitle className="text-center">Carpeta 1</CardTitle>
+      </CardHeader>
+      <CardContent className="flex items-center gap-x-0.5 w-full">
+        <OwnerUserBadge
+          fullName="Usuario User"
+          userName="usuario"
+          email="usuario@email.com"
+        />
+        <SharedUsersCountBadge />
+        <ResourceDatetimesBadge />
+        <ResourceCommentsCountBadge />
+        <CardAction className="self-center ml-auto">
+          <FolderCardDropdownMenu ref={ref} />
+        </CardAction>
+      </CardContent>
     </Card>
   );
 }

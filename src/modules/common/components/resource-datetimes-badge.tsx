@@ -6,15 +6,13 @@ import {
 } from "@/components/ui/tooltip";
 import { Calendar } from "lucide-react";
 
-export function ResourceDatetimes() {
+export function ResourceDatetimesBadge() {
   return (
     <Tooltip>
-      <TooltipTrigger>
+      <TooltipTrigger asChild>
         <Badge variant="accent">
           <Calendar />
-          <small className="text-[0.65rem] italic text-muted-foreground">
-            10-10-2025
-          </small>
+          <small className="italic text-muted-foreground">10-10-2025</small>
         </Badge>
       </TooltipTrigger>
       <TooltipContent className="font-medium [&_small]:font-normal [&_small]:italic [&_small]:text-muted-foreground">

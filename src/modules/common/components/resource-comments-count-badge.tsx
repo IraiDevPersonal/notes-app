@@ -1,7 +1,7 @@
 import { Badge } from "@/components/ui/badge";
 import { MessageSquareQuote } from "lucide-react";
 
-export function ResourceCommentsCount() {
+export function ResourceCommentsCountBadge() {
   return (
     <Badge variant="accent">
       <MessageSquareQuote />

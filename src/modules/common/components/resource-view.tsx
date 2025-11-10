@@ -1,12 +1,11 @@
-import { Accordion } from "@/components/ui/accordion";
-import { Folders } from "@/modules/folders/components/folders";
-import { Notes } from "@/modules/notes/components/notes";
+"use client";
+
+import { useResourceViewMode } from "../context/resource-view-mode.context";
+import { ResourceGridView } from "./resource-grid-view";
+import { ResourceListView } from "./resource-list-view";
 
 export function ResourceView() {
-  return (
-    <Accordion type="multiple" defaultValue={["folders", "notes"]}>
-      <Folders />
-      <Notes />
-    </Accordion>
-  );
+  const { viewMode } = useResourceViewMode();
+
+  return viewMode === "grid" ? <ResourceGridView /> : <ResourceListView />;
 }

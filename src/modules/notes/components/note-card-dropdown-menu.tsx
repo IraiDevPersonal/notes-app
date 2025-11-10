@@ -7,10 +7,10 @@ type Props = {
   ref?: React.RefObject<ResourceCardDropdownMenuRefObject>;
 };
 
-export function FolderCardDropdownMenu({ ref }: Props) {
+export function NoteCardDropdownMenu({ ref }: Props) {
   return (
     <ResourceCardDropdownMenu
-      resourceId="asdasdasd-asdasd-asdasd-123123123"
+      resourceId="asdasdasd-asdasdasdas-asdasdasd-123123"
       ref={ref}
     />
   );

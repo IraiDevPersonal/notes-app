@@ -6,7 +6,7 @@ import {
 } from "@/components/ui/tooltip";
 import { Users } from "lucide-react";
 
-export function SharedUsersCount() {
+export function SharedUsersCountBadge() {
   return (
     <Tooltip>
       <TooltipTrigger asChild>

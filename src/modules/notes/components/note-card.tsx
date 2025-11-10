@@ -6,32 +6,34 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { NoteCardDropdownMenu } from "./note-card-drpdown-menu";
+import { ResourceCommentsCountBadge } from "@/modules/common/components/resource-comments-count-badge";
+import { ResourceDatetimesBadge } from "@/modules/common/components/resource-datetimes-badge";
+import { useResourceCardDropdownMenuRefHandler } from "@/modules/common/hooks/use-resource-card-dropdwon-menu-ref-handler";
 import { OwnerUserBadge } from "@/modules/user/components/owner-user-badge";
-import { SharedUsersCount } from "@/modules/user/components/shared-users-count";
-import { ResourceDatetimes } from "@/modules/common/components/resource-datetimes";
-import { ResourceCommentsCount } from "@/modules/common/components/resource-comments-count";
+import { SharedUsersCountBadge } from "@/modules/user/components/shared-users-count-badge";
+import { NoteCardDropdownMenu } from "./note-card-dropdown-menu";
 
 export function NoteCard() {
+  const { ref, onContextMenu } = useResourceCardDropdownMenuRefHandler();
   return (
-    <Card className="h-full">
-      <CardHeader>
-        <div>
+    <Card className="h-full" onContextMenu={onContextMenu}>
+      <CardHeader className="flex flex-col gap-y-0">
+        <div className="flex items-start justify-between w-full">
           <CardTitle>Nota 1</CardTitle>
-          <div className="flex items-center gap-x-0.5 mt-2">
-            <OwnerUserBadge
-              fullName="Usuario User"
-              userName="usuario"
-              email="usuario@email.com"
-            />
-            <SharedUsersCount />
-            <ResourceDatetimes />
-            <ResourceCommentsCount />
-          </div>
+          <CardAction>
+            <NoteCardDropdownMenu ref={ref} />
+          </CardAction>
         </div>
-        <CardAction>
-          <NoteCardDropdownMenu />
-        </CardAction>
+        <div className="flex items-center gap-x-0.5">
+          <OwnerUserBadge
+            fullName="Usuario User"
+            userName="usuario"
+            email="usuario@email.com"
+          />
+          <SharedUsersCountBadge />
+          <ResourceDatetimesBadge />
+          <ResourceCommentsCountBadge />
+        </div>
       </CardHeader>
       <CardContent>
         <CardDescription>

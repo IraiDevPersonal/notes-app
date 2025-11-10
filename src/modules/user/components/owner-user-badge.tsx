@@ -14,7 +14,7 @@ type Props = {
 export function OwnerUserBadge({ fullName, userName, email }: Props) {
   return (
     <Tooltip>
-      <TooltipTrigger>
+      <TooltipTrigger asChild>
         <Badge variant="default">
           <small>@{userName}</small>
         </Badge>

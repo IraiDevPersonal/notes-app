@@ -20,19 +20,28 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useImperativeHandle, useState } from "react";
+import { ResourceCardDropdownMenuRefObject } from "../types";
 
 type Props = {
   resourceId: string;
+  ref?: React.RefObject<ResourceCardDropdownMenuRefObject>;
 };
 
-export function ResourceCardDropdownMenu({ resourceId }: Props) {
+export function ResourceCardDropdownMenu({ resourceId, ref }: Props) {
   const [isFavorite, setIsFavorite] = useState(false);
   const pathname = usePathname();
   const href = `${pathname}/${resourceId}`;
+  const [isOpen, setIsOpen] = useState(false);
+
+  useImperativeHandle(ref, () => ({
+    onContextMenu: () => {
+      setIsOpen(true);
+    },
+  }));
 
   return (
-    <DropdownMenu>
+    <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
       <DropdownMenuTrigger asChild>
         <Button variant="secondary" size="icon-sm">
           <EllipsisVertical />
