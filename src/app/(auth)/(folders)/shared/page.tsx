@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Compartidas",
+  title: "Compartidos",
 };
 
 export default function SharedPage() {
