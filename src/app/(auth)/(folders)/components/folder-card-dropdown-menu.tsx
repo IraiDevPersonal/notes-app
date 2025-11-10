@@ -1,7 +1,7 @@
 "use client";
 
-import { ResourceCardDropdownMenu } from "@/modules/common/components/resource-card-dropdown-menu";
-import { ResourceCardDropdownMenuRefObject } from "@/modules/common/types";
+import { ResourceCardDropdownMenu } from "@/app/(auth)/(common)/components/resource-card-dropdown-menu";
+import { ResourceCardDropdownMenuRefObject } from "@/app/(auth)/(common)/types";
 
 type Props = {
   ref?: React.RefObject<ResourceCardDropdownMenuRefObject>;

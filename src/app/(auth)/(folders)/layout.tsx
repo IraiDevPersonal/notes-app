@@ -1,5 +1,5 @@
-import { AppHeader } from "@/components/app-header";
-import { ResourceViewModeProvider } from "@/modules/common/context/resource-view-mode.context";
+import { FolderPageHeader } from "@/app/(auth)/(folders)/components/folder-page-header";
+import { ResourceViewModeProvider } from "@/app/(auth)/(common)/context/resource-view-mode.context";
 
 export default function FoldersLayout({
   children,
@@ -8,7 +8,7 @@ export default function FoldersLayout({
 }>) {
   return (
     <ResourceViewModeProvider>
-      <AppHeader />
+      <FolderPageHeader />
       <main className="p-4 flex flex-col space-y-4 w-full">{children}</main>
     </ResourceViewModeProvider>
   );

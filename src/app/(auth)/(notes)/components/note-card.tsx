@@ -6,11 +6,11 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { ResourceCommentsCountBadge } from "@/modules/common/components/resource-comments-count-badge";
-import { ResourceDatetimesBadge } from "@/modules/common/components/resource-datetimes-badge";
-import { useResourceCardDropdownMenuRefHandler } from "@/modules/common/hooks/use-resource-card-dropdwon-menu-ref-handler";
-import { OwnerUserBadge } from "@/modules/user/components/owner-user-badge";
-import { SharedUsersCountBadge } from "@/modules/user/components/shared-users-count-badge";
+import { ResourceCommentsCountBadge } from "@/app/(auth)/(common)/components/resource-comments-count-badge";
+import { ResourceDatetimesBadge } from "@/app/(auth)/(common)/components/resource-datetimes-badge";
+import { useResourceCardDropdownMenuRefHandler } from "@/app/(auth)/(common)/hooks/use-resource-card-dropdwon-menu-ref-handler";
+import { OwnerUserBadge } from "@/app/(auth)/(user)/components/owner-user-badge";
+import { SharedUsersCountBadge } from "@/app/(auth)/(user)/components/shared-users-count-badge";
 import { NoteCardDropdownMenu } from "./note-card-dropdown-menu";
 
 export function NoteCard() {

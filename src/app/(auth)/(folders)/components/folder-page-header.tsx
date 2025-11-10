@@ -1,10 +1,10 @@
 "use client";
 
 import { ROUTE_TITLES } from "@/lib/routes/titles";
-import { ResourceViewModeSelector } from "@/modules/common/components/resource-view-mode-selector";
+import { ResourceViewModeSelector } from "@/app/(auth)/(common)/components/resource-view-mode-selector";
 import { usePathname } from "next/navigation";
 
-function AppHeader() {
+export function FolderPageHeader() {
   const pathname = usePathname();
   return (
     <header className="flex justify-between items-center gap-x-4">
@@ -13,5 +13,3 @@ function AppHeader() {
     </header>
   );
 }
-
-export { AppHeader };

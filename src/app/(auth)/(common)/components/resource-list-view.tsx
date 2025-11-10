@@ -1,6 +1,6 @@
 import { Accordion } from "@/components/ui/accordion";
-import { FolderCard } from "@/modules/folders/components/folder-card";
-import { NoteCard } from "@/modules/notes/components/note-card";
+import { FolderCard } from "@/app/(auth)/(folders)/components/folder-card";
+import { NoteCard } from "@/app/(auth)/(notes)/components/note-card";
 import { ResourceAccordionItem } from "./resource-accordion-item";
 
 export function ResourceListView() {
