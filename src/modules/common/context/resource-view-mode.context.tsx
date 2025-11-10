@@ -17,7 +17,7 @@ export function ResourceViewModeProvider({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [viewMode, setViewMode] = useState<ViewMode>("list");
+  const [viewMode, setViewMode] = useState<ViewMode>("grid");
   const onViewModeChange = useCallback(
     (viewMode: ViewMode) => {
       setViewMode(viewMode);
