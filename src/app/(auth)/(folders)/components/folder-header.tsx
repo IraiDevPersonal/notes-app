@@ -3,11 +3,13 @@ import { ResourceDatetimesBadge } from "@/app/(auth)/(common)/components/resourc
 import { SharedUsersCountBadge } from "@/app/(auth)/(user)/components/shared-users-count-badge";
 import { OwnerUserBadge } from "@/app/(auth)/(user)/components/owner-user-badge";
 import { Edit2, Folder, FolderSymlink, Share2, Trash } from "lucide-react";
+import { BackButton } from "@/components/ui/back-button";
 
 export function FolderHeader() {
   return (
-    <header className="p-4 rounded-2xl bg-card border space-y-4">
+    <header className="p-4 lg:p-8 rounded-2xl bg-card border space-y-4 lg:space-y-8">
       <div className="flex items-center gap-4">
+        <BackButton />
         <figure className="flex items-center justify-center p-4 rounded-full bg-accent">
           <Folder size={50} />
         </figure>

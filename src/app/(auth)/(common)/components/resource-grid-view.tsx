@@ -14,9 +14,27 @@ export function ResourceGridView() {
         <FolderCard viewMode="grid" />
         <FolderCard viewMode="grid" />
         <FolderCard viewMode="grid" />
+        <FolderCard viewMode="grid" />
+        <FolderCard viewMode="grid" />
+        <FolderCard viewMode="grid" />
+        <FolderCard viewMode="grid" />
+        <FolderCard viewMode="grid" />
       </GridWrapper>
 
       <GridWrapper>
+        <NoteCard />
+        <NoteCard />
+        <NoteCard />
+        <NoteCard />
+        <NoteCard />
+        <NoteCard />
+        <NoteCard />
+        <NoteCard />
+        <NoteCard />
+        <NoteCard />
+        <NoteCard />
+        <NoteCard />
+        <NoteCard />
         <NoteCard />
         <NoteCard />
         <NoteCard />

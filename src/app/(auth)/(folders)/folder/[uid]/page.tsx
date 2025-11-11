@@ -1,6 +1,6 @@
 import { Metadata } from "next";
-import { FolderHeader } from "../../components/folder-header";
-import { FolderResourceContent } from "../../components/folder-resource-content";
+import { FolderHeader } from "@/app/(auth)/(folders)/components/folder-header";
+import { FolderResourceContent } from "@/app/(auth)/(folders)/components/folder-resource-content";
 
 export const metadata: Metadata = {
   title: "Carpeta",

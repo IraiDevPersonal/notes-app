@@ -19,10 +19,8 @@ import {
   Trash,
 } from "lucide-react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useImperativeHandle, useState } from "react";
 import { ResourceCardDropdownMenuRefObject } from "../types";
-import { replaceUUID } from "@/lib/utils";
 
 type Props = {
   ref?: React.RefObject<ResourceCardDropdownMenuRefObject>;
@@ -33,7 +31,6 @@ type Props = {
 export function ResourceCardDropdownMenu({ resourceId, ref, type }: Props) {
   const [isFavorite, setIsFavorite] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const pathname = usePathname();
 
   useImperativeHandle(ref, () => ({
     onContextMenu: () => {
@@ -41,8 +38,7 @@ export function ResourceCardDropdownMenu({ resourceId, ref, type }: Props) {
     },
   }));
 
-  const href =
-    type === "note" ? `/note/${resourceId}` : replaceUUID(pathname, resourceId);
+  const href = `/${type}/${resourceId}`;
 
   return (
     <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>

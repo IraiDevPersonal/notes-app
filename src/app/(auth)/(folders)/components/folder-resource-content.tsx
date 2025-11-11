@@ -5,14 +5,13 @@ import { ResourceViewModeProvider } from "@/app/(auth)/(common)/context/resource
 
 export function FolderResourceContent() {
   return (
-    <div className="p-4 rounded-2xl border space-y-4">
-      <ResourceSearch />
+    <div className="space-y-8">
       <ResourceViewModeProvider defaultViewMode="list">
         <div className="flex items-center justify-between">
-          <h2 className="text-xl font-semibold">Recursos</h2>
+          <ResourceSearch />
           <ResourceViewModeSelector />
         </div>
-        <div className="space-y-4">
+        <div className="space-y-4 px-8 pb-4 border-x">
           <ResourceView />
         </div>
       </ResourceViewModeProvider>

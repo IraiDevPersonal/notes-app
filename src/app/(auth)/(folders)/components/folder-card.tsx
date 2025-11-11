@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Card,
   CardAction,
@@ -58,7 +60,7 @@ function FolderGridItem() {
     <Card onContextMenu={onContextMenu}>
       <CardHeader className="mb-2">
         <div className="flex justify-center">
-          <Folder size={120} strokeWidth={0.5} />
+          <Folder size={110} strokeWidth={0.5} />
         </div>
         <CardTitle className="text-center">Carpeta 1</CardTitle>
       </CardHeader>

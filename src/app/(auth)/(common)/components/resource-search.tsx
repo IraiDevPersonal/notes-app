@@ -3,11 +3,16 @@ import {
   InputGroupAddon,
   InputGroupInput,
 } from "@/components/ui/input-group";
+import { cn } from "@/lib/utils";
 import { Search } from "lucide-react";
 
-export function ResourceSearch() {
+type Props = {
+  className?: string;
+};
+
+export function ResourceSearch({ className }: Props) {
   return (
-    <InputGroup className="xl:max-w-3xl py-6">
+    <InputGroup className={cn("xl:max-w-3xl py-6", className)}>
       <InputGroupInput placeholder="Buscar..." />
       <InputGroupAddon>
         <Search />

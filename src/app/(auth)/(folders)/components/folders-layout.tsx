@@ -10,14 +10,16 @@ export function FoldersLayout({
 }>) {
   return (
     <ResourceViewModeProvider>
-      <header className="space-y-2 w-full">
-        <ResourceSearch />
-        <div className="flex justify-between items-center gap-x-4 py-4">
+      <header className="p-4 lg:p-8 space-y-4 lg:space-y-8 w-full">
+        <div className="flex justify-between items-center gap-x-4">
           <FoldersTitle />
           <ResourceViewModeSelector />
         </div>
+        <ResourceSearch className="mx-auto" />
       </header>
-      <div className="flex flex-col space-y-4 w-full">{children}</div>
+      <main className="flex flex-col space-y-4 lg:space-y-8 w-full p-4 lg:p-8 pt-0!">
+        {children}
+      </main>
     </ResourceViewModeProvider>
   );
 }
