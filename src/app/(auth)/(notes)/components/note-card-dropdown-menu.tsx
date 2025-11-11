@@ -2,17 +2,12 @@
 
 import { ResourceCardDropdownMenu } from "@/app/(auth)/(common)/components/resource-card-dropdown-menu";
 import { ResourceCardDropdownMenuRefObject } from "@/app/(auth)/(common)/types";
+import { v4 } from "uuid";
 
 type Props = {
   ref?: React.RefObject<ResourceCardDropdownMenuRefObject>;
 };
 
 export function NoteCardDropdownMenu({ ref }: Props) {
-  return (
-    <ResourceCardDropdownMenu
-      resourceId="asdasdasd-asdasdasdas-asdasdasd-123123"
-      type="note"
-      ref={ref}
-    />
-  );
+  return <ResourceCardDropdownMenu resourceId={v4()} type="note" ref={ref} />;
 }

@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { ROUTES } from "@/lib/routes";
 import Link from "next/link";
 
 export default function Home() {
@@ -7,7 +8,7 @@ export default function Home() {
       <h1 className="text-6xl font-bold">Notes App</h1>
       <p className="text-neutral-400 text-center">Organiza tus notas</p>
       <Button asChild>
-        <Link href="/my-notes">Ir a mi espacio</Link>
+        <Link href={ROUTES.MY_SPACE}>Ir a mi espacio</Link>
       </Button>
     </main>
   );

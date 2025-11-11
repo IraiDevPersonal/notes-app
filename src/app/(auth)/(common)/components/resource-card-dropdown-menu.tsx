@@ -19,9 +19,10 @@ import {
   Trash,
 } from "lucide-react";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useImperativeHandle, useState } from "react";
 import { ResourceCardDropdownMenuRefObject } from "../types";
+import { replaceUUID } from "@/lib/utils";
 
 type Props = {
   ref?: React.RefObject<ResourceCardDropdownMenuRefObject>;
@@ -33,7 +34,6 @@ export function ResourceCardDropdownMenu({ resourceId, ref, type }: Props) {
   const [isFavorite, setIsFavorite] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
-  const router = useRouter();
 
   useImperativeHandle(ref, () => ({
     onContextMenu: () => {
@@ -42,7 +42,7 @@ export function ResourceCardDropdownMenu({ resourceId, ref, type }: Props) {
   }));
 
   const href =
-    type === "note" ? `/note/${resourceId}` : `/${pathname}/${resourceId}`;
+    type === "note" ? `/note/${resourceId}` : replaceUUID(pathname, resourceId);
 
   return (
     <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
@@ -52,11 +52,11 @@ export function ResourceCardDropdownMenu({ resourceId, ref, type }: Props) {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-56">
-        <DropdownMenuItem onClick={() => router.push("/" + resourceId)}>
-          {/* <Link href={href}> */}
-          <ArrowRight />
-          Ir
-          {/* </Link> */}
+        <DropdownMenuItem asChild>
+          <Link href={href}>
+            <ArrowRight />
+            Ir
+          </Link>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuLabel>Acciones</DropdownMenuLabel>
