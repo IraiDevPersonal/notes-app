@@ -1,10 +1,10 @@
 import { Metadata } from "next";
-import { FolderPageLayout } from "../components/folder-page-layout";
+import { FoldersLayout } from "../components/folders-layout";
 
 export const metadata: Metadata = {
   title: "Compartidos",
 };
 
 export default function SharedPage() {
-  return <FolderPageLayout>Shared</FolderPageLayout>;
+  return <FoldersLayout>Shared</FoldersLayout>;
 }

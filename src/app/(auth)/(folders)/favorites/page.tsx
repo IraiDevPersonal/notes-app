@@ -1,10 +1,10 @@
 import { Metadata } from "next";
-import { FolderPageLayout } from "../components/folder-page-layout";
+import { FoldersLayout } from "../components/folders-layout";
 
 export const metadata: Metadata = {
   title: "Favoritos",
 };
 
 export default function FavoritesPage() {
-  return <FolderPageLayout>Favorites</FolderPageLayout>;
+  return <FoldersLayout>Favorites</FoldersLayout>;
 }
