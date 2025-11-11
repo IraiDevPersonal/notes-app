@@ -5,5 +5,5 @@ import { usePathname } from "next/navigation";
 
 export function FoldersTitle() {
   const pathname = usePathname();
-  return <h1 className="text-2xl font-semibold">{ROUTE_TITLES[pathname]}</h1>;
+  return <h1 className="text-3xl font-semibold">{ROUTE_TITLES[pathname]}</h1>;
 }
