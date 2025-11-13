@@ -9,11 +9,15 @@ export function ResourceListView() {
   return (
     <Accordion type="multiple" defaultValue={["folders", "notes"]}>
       <ResourceAccordionItem value="folders">
-        <For items={arrayFromLength(10)}>{() => <FolderCard />}</For>
+        <For items={arrayFromLength(10)}>
+          {(_, idx) => <FolderCard isFavorite={idx % 2 === 0} />}
+        </For>
       </ResourceAccordionItem>
 
       <ResourceAccordionItem value="notes">
-        <For items={arrayFromLength(13)}>{() => <NoteCard />}</For>
+        <For items={arrayFromLength(13)}>
+          {(_, idx) => <NoteCard isFavorite={idx % 2 === 0} />}
+        </For>
       </ResourceAccordionItem>
     </Accordion>
   );

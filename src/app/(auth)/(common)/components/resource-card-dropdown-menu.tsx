@@ -60,6 +60,7 @@ export function ResourceCardDropdownMenu({ resourceId, ref, type }: Props) {
           checked={isFavorite}
           onCheckedChange={setIsFavorite}
           icon={<Star />}
+          className="data-[state=checked]:[&_svg]:fill-favorite data-[state=checked]:text-favorite"
         >
           {isFavorite ? "Quitar favorito" : "Agregar favorito"}
         </DropdownMenuCheckboxItem>

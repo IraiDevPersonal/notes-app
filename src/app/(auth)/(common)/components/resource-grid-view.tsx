@@ -6,23 +6,19 @@ import { arrayFromLength } from "@/lib/utils";
 export function ResourceGridView() {
   return (
     <>
-      <GridWrapper>
+      <div className="grid grid-cols-[repeat(auto-fill,minmax(14rem,1fr))] gap-3">
         <For items={arrayFromLength(30)}>
-          {() => <FolderCard viewMode="grid" />}
+          {(_, idx) => (
+            <FolderCard viewMode="grid" isFavorite={idx % 2 === 0} />
+          )}
         </For>
-      </GridWrapper>
+      </div>
 
-      <GridWrapper>
-        <For items={arrayFromLength(20)}>{() => <NoteCard />}</For>
-      </GridWrapper>
+      <div className="grid grid-cols-[repeat(auto-fill,minmax(20rem,1fr))] gap-3">
+        <For items={arrayFromLength(20)}>
+          {(_, idx) => <NoteCard isFavorite={idx % 2 === 0} />}
+        </For>
+      </div>
     </>
-  );
-}
-
-function GridWrapper({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="grid grid-cols-[repeat(auto-fill,minmax(20rem,1fr))] gap-3">
-      {children}
-    </div>
   );
 }

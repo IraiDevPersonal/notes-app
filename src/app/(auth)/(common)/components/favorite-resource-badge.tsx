@@ -11,7 +11,7 @@ export function FavoriteResourceBadge() {
     <Tooltip>
       <TooltipTrigger asChild>
         <Badge variant="secondary">
-          <Star className="text-primary fill-primary" />
+          <Star className="text-favorite fill-favorite" />
         </Badge>
       </TooltipTrigger>
       <TooltipContent>

@@ -13,11 +13,19 @@ import { OwnerUserBadge } from "@/app/(auth)/(user)/components/owner-user-badge"
 import { SharedUsersCountBadge } from "@/app/(auth)/(user)/components/shared-users-count-badge";
 import { NoteCardDropdownMenu } from "./note-card-dropdown-menu";
 import { FavoriteResourceBadge } from "../../(common)/components/favorite-resource-badge";
+import { cn } from "@/lib/utils";
 
-export function NoteCard() {
+type Props = {
+  isFavorite?: boolean;
+};
+
+export function NoteCard({ isFavorite }: Props) {
   const { ref, onContextMenu } = useResourceCardDropdownMenuRefHandler();
   return (
-    <Card className="h-full" onContextMenu={onContextMenu}>
+    <Card
+      className={cn("h-full", isFavorite && "border-favorite/50")}
+      onContextMenu={onContextMenu}
+    >
       <CardHeader className="flex flex-col gap-y-0">
         <div className="flex items-start justify-between w-full">
           <CardTitle>Nota 1</CardTitle>
@@ -34,7 +42,7 @@ export function NoteCard() {
           <ResourceDatetimesBadge />
           <SharedUsersCountBadge />
           <ResourceCommentsCountBadge />
-          <FavoriteResourceBadge />
+          {isFavorite && <FavoriteResourceBadge />}
         </div>
       </CardHeader>
       <CardContent>
