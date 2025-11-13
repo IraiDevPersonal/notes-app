@@ -11,6 +11,7 @@ import {
   Star,
   Trash,
 } from "lucide-react";
+import { CommentsModal } from "@/app/(auth)/(comments)/components/comments-modal";
 
 export function FolderHeader() {
   return (
@@ -37,7 +38,7 @@ export function FolderHeader() {
       <FolderDescription />
 
       <div className="flex items-center justify-center gap-2">
-        <Button variant="secondary">Comentarios (10)</Button>
+        <CommentsModal />
       </div>
     </header>
   );
