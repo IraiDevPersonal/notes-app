@@ -24,8 +24,8 @@ export function FolderHeader() {
           userName="usuario"
           email="usuario@email.com"
         />
-        <SharedUsersCountBadge />
         <ResourceDatetimesBadge />
+        <SharedUsersCountBadge />
         <FavoriteResourceBadge />
       </div>
 

@@ -41,7 +41,10 @@ export function AppSidebar() {
   return (
     <Sidebar>
       <SidebarHeader>
-        <span className="text-3xl font-bold italic">NotesApp</span>
+        <span className="text-3xl font-bold italic">
+          Social <span className="text-muted-foreground">Notes</span>
+        </span>
+        {/* <span className="text-3xl font-bold italic">NotApp</span> */}
       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
