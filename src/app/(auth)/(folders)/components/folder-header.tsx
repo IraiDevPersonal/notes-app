@@ -1,14 +1,20 @@
-import { Button } from "@/components/ui/button";
 import { ResourceDatetimesBadge } from "@/app/(auth)/(common)/components/resource-datetimes-badge";
-import { SharedUsersCountBadge } from "@/app/(auth)/(user)/components/shared-users-count-badge";
 import { OwnerUserBadge } from "@/app/(auth)/(user)/components/owner-user-badge";
-import { Edit2, Folder, FolderSymlink, Share2, Trash } from "lucide-react";
+import { SharedUsersCountBadge } from "@/app/(auth)/(user)/components/shared-users-count-badge";
 import { BackButton } from "@/components/ui/back-button";
-import { FavoriteResourceBadge } from "../../(common)/components/favorite-resource-badge";
+import { Button } from "@/components/ui/button";
+import {
+  Edit2,
+  Folder,
+  FolderSymlink,
+  Share2,
+  Star,
+  Trash,
+} from "lucide-react";
 
 export function FolderHeader() {
   return (
-    <header className="p-4 lg:p-8 rounded-2xl bg-card border space-y-4 lg:space-y-8">
+    <header className="space-y-4 lg:space-y-8">
       <div className="flex items-center gap-4">
         <BackButton />
         <figure className="flex items-center justify-center p-4 rounded-full bg-accent">
@@ -26,7 +32,6 @@ export function FolderHeader() {
         />
         <ResourceDatetimesBadge />
         <SharedUsersCountBadge />
-        <FavoriteResourceBadge />
       </div>
 
       <FolderDescription />
@@ -77,6 +82,9 @@ function FolderActions() {
       </Button>
       <Button size="icon" variant="ghost" title="Compartir">
         <Share2 />
+      </Button>
+      <Button size="icon" variant="ghost" title="Marcar como favorito">
+        <Star />
       </Button>
       <Button size="icon" variant="ghost" title="Eliminar">
         <Trash />
