@@ -4,6 +4,7 @@ import { SharedUsersCountBadge } from "@/app/(auth)/(user)/components/shared-use
 import { OwnerUserBadge } from "@/app/(auth)/(user)/components/owner-user-badge";
 import { Edit2, Folder, FolderSymlink, Share2, Trash } from "lucide-react";
 import { BackButton } from "@/components/ui/back-button";
+import { FavoriteResourceBadge } from "../../(common)/components/favorite-resource-badge";
 
 export function FolderHeader() {
   return (
@@ -25,6 +26,7 @@ export function FolderHeader() {
         />
         <SharedUsersCountBadge />
         <ResourceDatetimesBadge />
+        <FavoriteResourceBadge />
       </div>
 
       <FolderDescription />

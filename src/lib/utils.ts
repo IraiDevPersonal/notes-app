@@ -1,5 +1,6 @@
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { v4 } from "uuid";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -18,4 +19,12 @@ export function replaceUUID(value: string, newUUID: string) {
 
   // Si no hay UUID, agregar al final
   return `${value}/${newUUID}`;
+}
+
+export function arrayFromLength(length: number): { key: string }[] {
+  return Array.from({ length }, () => ({ key: randomUUID() }));
+}
+
+export function randomUUID(): string {
+  return v4();
 }

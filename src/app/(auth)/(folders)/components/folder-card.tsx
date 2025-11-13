@@ -15,6 +15,7 @@ import { ResourceDatetimesBadge } from "@/app/(auth)/(common)/components/resourc
 import { ViewMode } from "@/app/(auth)/(common)/types/view-mode";
 import { ResourceCommentsCountBadge } from "@/app/(auth)/(common)/components/resource-comments-count-badge";
 import { useResourceCardDropdownMenuRefHandler } from "@/app/(auth)/(common)/hooks/use-resource-card-dropdwon-menu-ref-handler";
+import { FavoriteResourceBadge } from "../../(common)/components/favorite-resource-badge";
 
 type Props = {
   viewMode?: ViewMode;
@@ -42,9 +43,10 @@ function FolderListItem() {
             userName="usuario"
             email="usuario@email.com"
           />
-          <SharedUsersCountBadge />
           <ResourceDatetimesBadge />
+          <SharedUsersCountBadge />
           <ResourceCommentsCountBadge />
+          <FavoriteResourceBadge />
         </div>
       </CardContent>
       <CardAction className="self-center pe-4">
@@ -70,9 +72,10 @@ function FolderGridItem() {
           userName="usuario"
           email="usuario@email.com"
         />
-        <SharedUsersCountBadge />
         <ResourceDatetimesBadge />
+        <SharedUsersCountBadge />
         <ResourceCommentsCountBadge />
+        <FavoriteResourceBadge />
         <CardAction className="self-center ml-auto">
           <FolderCardDropdownMenu ref={ref} />
         </CardAction>

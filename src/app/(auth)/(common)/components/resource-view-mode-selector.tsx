@@ -4,7 +4,11 @@ import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { Grid, List } from "lucide-react";
 import { useResourceViewMode } from "../context/resource-view-mode.context";
 
-export function ResourceViewModeSelector() {
+type Props = {
+  className?: string;
+};
+
+export function ResourceViewModeSelector({ className }: Props) {
   const { viewMode, onViewModeChange } = useResourceViewMode();
   return (
     <ToggleGroup
@@ -12,6 +16,7 @@ export function ResourceViewModeSelector() {
       variant="outline"
       value={viewMode}
       onValueChange={onViewModeChange}
+      className={className}
     >
       <ToggleGroupItem value="list" aria-label="List view">
         <List />

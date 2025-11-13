@@ -9,7 +9,7 @@ export default function AuthLayout({
   return (
     <SidebarProvider>
       <AppSidebar />
-      <div className="flex-1 overflow-auto h-svh">{children}</div>
+      <div className="flex-1">{children}</div>
     </SidebarProvider>
   );
 }

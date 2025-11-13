@@ -64,13 +64,13 @@ export function ResourceCardDropdownMenu({ resourceId, ref, type }: Props) {
           {isFavorite ? "Quitar favorito" : "Agregar favorito"}
         </DropdownMenuCheckboxItem>
         <DropdownMenuItem asChild>
-          <Link href={`${href}?open-modal=true`}>
+          <Link href={`${href}?open-move-modal=true`}>
             <FolderSymlink />
             Mover
           </Link>
         </DropdownMenuItem>
         <DropdownMenuItem asChild>
-          <Link href={`${href}?open-modal=true`}>
+          <Link href={`${href}?open-share-modal=true`}>
             <Share2 />
             Compartir
           </Link>

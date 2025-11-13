@@ -12,6 +12,7 @@ import { useResourceCardDropdownMenuRefHandler } from "@/app/(auth)/(common)/hoo
 import { OwnerUserBadge } from "@/app/(auth)/(user)/components/owner-user-badge";
 import { SharedUsersCountBadge } from "@/app/(auth)/(user)/components/shared-users-count-badge";
 import { NoteCardDropdownMenu } from "./note-card-dropdown-menu";
+import { FavoriteResourceBadge } from "../../(common)/components/favorite-resource-badge";
 
 export function NoteCard() {
   const { ref, onContextMenu } = useResourceCardDropdownMenuRefHandler();
@@ -30,9 +31,10 @@ export function NoteCard() {
             userName="usuario"
             email="usuario@email.com"
           />
-          <SharedUsersCountBadge />
           <ResourceDatetimesBadge />
+          <SharedUsersCountBadge />
           <ResourceCommentsCountBadge />
+          <FavoriteResourceBadge />
         </div>
       </CardHeader>
       <CardContent>
