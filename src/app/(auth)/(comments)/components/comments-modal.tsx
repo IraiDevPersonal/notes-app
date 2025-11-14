@@ -10,27 +10,40 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { ResourceSearch } from "../../(common)/components/resource-search";
-import { AddCommentForm } from "./add-comment-form";
+import { ResourceSearch } from "@/app/(auth)/(common)/components/resource-search";
+import { CommentForm } from "./comment-form";
 import { CommentList } from "./comment-list";
+import { useState } from "react";
 
 export function CommentsModal() {
+  const [open, setOpen] = useState(false);
+  const [comment, setComment] = useState("");
+
+  const handleOpenChange = (open: boolean) => {
+    setOpen(open);
+    setComment("");
+  };
+
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={handleOpenChange}>
       <DialogTrigger asChild>
         <Button variant="secondary">Comentarios (10)</Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-2xl w-full">
+      <DialogContent className="sm:max-w-4xl w-full">
         <DialogHeader>
           <DialogTitle>Comentarios</DialogTitle>
           <DialogDescription></DialogDescription>
-          <ResourceSearch />
+          <ResourceSearch className="xl:max-w-full" />
         </DialogHeader>
-        <div className="h-[calc(100vh-20rem)] overflow-y-auto">
-          <CommentList />
+        <div className="h-[calc(100vh-24rem)] overflow-y-auto">
+          <CommentList onEdit={() => setComment("hola")} />
         </div>
         <DialogFooter className="sm:flex-col gap-y-2">
-          <AddCommentForm />
+          <CommentForm
+            key={comment}
+            onSubmit={() => {}}
+            defaultValues={{ comment }}
+          />
         </DialogFooter>
       </DialogContent>
     </Dialog>

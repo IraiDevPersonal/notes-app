@@ -5,7 +5,11 @@ import { Button } from "@/components/ui/button";
 import { Edit2 } from "lucide-react";
 import { arrayFromLength } from "@/lib/utils";
 
-export function CommentList() {
+type Props = {
+  onEdit: () => void;
+};
+
+export function CommentList({ onEdit }: Props) {
   return (
     <ul className="space-y-2">
       <For items={arrayFromLength(12)}>
@@ -21,7 +25,12 @@ export function CommentList() {
                 userName="johndoe"
                 email="johndoe@example.com"
               />
-              <Button size="icon" variant="ghost" className="ml-auto">
+              <Button
+                size="icon"
+                variant="ghost"
+                className="ml-auto"
+                onClick={onEdit}
+              >
                 <Edit2 />
               </Button>
             </div>

@@ -12,7 +12,7 @@ type Props = {
 
 export function ResourceSearch({ className }: Props) {
   return (
-    <InputGroup className={cn("xl:max-w-3xl py-6", className)}>
+    <InputGroup className={cn("xl:max-w-3xl w-full py-6", className)}>
       <InputGroupInput placeholder="Buscar..." />
       <InputGroupAddon>
         <Search />
