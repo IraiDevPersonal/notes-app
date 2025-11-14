@@ -8,7 +8,7 @@ import {
 type Props = {
   onSubmit: () => void;
   defaultValues?: {
-    comment: string;
+    description: string;
   };
 };
 
@@ -17,13 +17,13 @@ export function CommentForm({ onSubmit, defaultValues }: Props) {
     <form onSubmit={onSubmit}>
       <InputGroup>
         <InputGroupTextarea
-          autoFocus={!!defaultValues?.comment}
+          autoFocus={!!defaultValues?.description}
           placeholder="Contenido del comentario..."
-          defaultValue={defaultValues?.comment}
+          defaultValue={defaultValues?.description}
         />
         <InputGroupAddon align="block-end">
           <InputGroupButton size="sm" className="ml-auto" variant="secondary">
-            {defaultValues?.comment ? "Editar" : "Agregar"}
+            {defaultValues?.description ? "Editar" : "Agregar"}
           </InputGroupButton>
         </InputGroupAddon>
       </InputGroup>

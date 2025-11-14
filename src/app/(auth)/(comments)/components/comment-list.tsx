@@ -1,3 +1,5 @@
+"use client";
+
 import { For } from "@/components/for";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { OwnerUserBadge } from "../../(user)/components/owner-user-badge";

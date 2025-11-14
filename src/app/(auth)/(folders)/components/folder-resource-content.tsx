@@ -8,7 +8,7 @@ export function FolderResourceContent() {
     <div className="space-y-8">
       <ResourceViewModeProvider defaultViewMode="list">
         <div className="flex items-center justify-between gap-4">
-          <h3 className="text-2xl font-semibold">Recursos</h3>
+          <h3 className="text-xl font-semibold">Recursos</h3>
           <ResourceViewModeSelector />
         </div>
         <ResourceSearch className="mx-auto" />

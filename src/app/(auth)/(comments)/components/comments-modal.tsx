@@ -42,7 +42,7 @@ export function CommentsModal() {
           <CommentForm
             key={comment}
             onSubmit={() => {}}
-            defaultValues={{ comment }}
+            defaultValues={{ description: comment }}
           />
         </DialogFooter>
       </DialogContent>
