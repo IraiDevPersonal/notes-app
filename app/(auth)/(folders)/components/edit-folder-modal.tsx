@@ -12,11 +12,11 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/app/ui/dialog";
-import { FolderPlus } from "lucide-react";
+import { Edit2 } from "lucide-react";
 import { useState } from "react";
 import { FOLDER_FORM_ID } from "../lib/constants";
 
-export function CreateFolderModal() {
+export function EditFolderModal() {
   const [open, setOpen] = useState(false);
 
   const handleOpenChange = (open: boolean) => {
@@ -26,14 +26,13 @@ export function CreateFolderModal() {
   return (
     <Dialog open={open} onOpenChange={handleOpenChange}>
       <DialogTrigger asChild>
-        <Button variant="fab" size="lg" className="w-max">
-          <FolderPlus />
-          Crear Carpeta
+        <Button variant="ghost" size="icon" title="Editar">
+          <Edit2 />
         </Button>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Crear Carpeta</DialogTitle>
+          <DialogTitle>Editar Carpeta</DialogTitle>
           <DialogDescription>
             Introduce los datos de la carpeta.
           </DialogDescription>

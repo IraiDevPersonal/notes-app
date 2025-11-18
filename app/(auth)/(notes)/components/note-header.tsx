@@ -1,9 +1,10 @@
+import { FolderSymlink, Share2, Star, Trash } from "lucide-react";
 import { ResourceDatetimesBadge } from "../../(resources)/components/resource-datetimes-badge";
 import { OwnerUserBadge } from "../../(user)/components/owner-user-badge";
 import { SharedUsersCountBadge } from "../../(user)/components/shared-users-count-badge";
 import { BackButton } from "../../../ui/back-button";
 import { Button } from "../../../ui/button";
-import { Edit2, FolderSymlink, Share2, Star, Trash } from "lucide-react";
+import { EditNoteModal } from "./edit-note-modal";
 
 export function NoteHeader() {
   return (
@@ -30,10 +31,7 @@ export function NoteHeader() {
 function NoteActions() {
   return (
     <div className="ml-auto self-start flex items-center flex-wrap justify-end gap-x-1">
-      <Button variant="ghost">
-        <Edit2 />
-        Editar
-      </Button>
+      <EditNoteModal />
       <Button size="icon" variant="ghost" title="Mover">
         <FolderSymlink />
       </Button>

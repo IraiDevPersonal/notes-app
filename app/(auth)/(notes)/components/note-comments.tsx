@@ -20,7 +20,7 @@ export function NoteComments() {
         </div>
         <ResourceSearch className="mx-auto" />
       </header>
-      <div className="pl-4 lg:pl-8 pb-4 lg:pb-8 border-l">
+      <div>
         <CommentList onEdit={() => setComment("hola hola")} />
       </div>
     </div>

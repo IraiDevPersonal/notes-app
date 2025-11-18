@@ -1,7 +1,7 @@
-import { ResourceSearch } from "../../(resources)/components/resource-search";
-import { ResourceView } from "../../(resources)/components/resource-view";
-import { ResourceViewModeSelector } from "../../(resources)/components/resource-view-mode-selector";
-import { ResourceViewModeProvider } from "../../(resources)/context/resource-view-mode.context";
+import { ResourceSearch } from "@/app/(auth)/(resources)/components/resource-search";
+import { ResourceView } from "@/app/(auth)/(resources)/components/resource-view";
+import { ResourceViewModeSelector } from "@/app/(auth)/(resources)/components/resource-view-mode-selector";
+import { ResourceViewModeProvider } from "@/app/(auth)/(resources)/context/resource-view-mode.context";
 
 export function FolderResourceContent() {
   return (
@@ -12,7 +12,7 @@ export function FolderResourceContent() {
           <ResourceViewModeSelector />
         </div>
         <ResourceSearch className="mx-auto" />
-        <div className="space-y-4 ps-8 pb-4 border-l">
+        <div>
           <ResourceView />
         </div>
       </ResourceViewModeProvider>

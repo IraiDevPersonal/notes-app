@@ -1,17 +1,11 @@
+import { Folder, FolderSymlink, Share2, Star, Trash } from "lucide-react";
+import { CommentsModal } from "../../(comments)/components/comments-modal";
 import { ResourceDatetimesBadge } from "../../(resources)/components/resource-datetimes-badge";
 import { OwnerUserBadge } from "../../(user)/components/owner-user-badge";
 import { SharedUsersCountBadge } from "../../(user)/components/shared-users-count-badge";
 import { BackButton } from "../../../ui/back-button";
 import { Button } from "../../../ui/button";
-import {
-  Edit2,
-  Folder,
-  FolderSymlink,
-  Share2,
-  Star,
-  Trash,
-} from "lucide-react";
-import { CommentsModal } from "../../(comments)/components/comments-modal";
+import { EditFolderModal } from "./edit-folder-modal";
 
 export function FolderHeader() {
   return (
@@ -74,10 +68,7 @@ function FolderDescription() {
 function FolderActions() {
   return (
     <div className="ml-auto self-start flex items-center flex-wrap justify-end gap-x-1">
-      <Button variant="ghost">
-        <Edit2 />
-        Editar
-      </Button>
+      <EditFolderModal />
       <Button size="icon" variant="ghost" title="Mover">
         <FolderSymlink />
       </Button>

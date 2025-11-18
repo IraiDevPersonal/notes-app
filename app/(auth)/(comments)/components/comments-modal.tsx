@@ -30,7 +30,7 @@ export function CommentsModal() {
       <DialogTrigger asChild>
         <Button variant="secondary">Comentarios (10)</Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-4xl w-full">
+      <DialogContent className="sm:max-w-3xl w-full">
         <DialogHeader>
           <DialogTitle>Comentarios</DialogTitle>
           <DialogDescription></DialogDescription>
