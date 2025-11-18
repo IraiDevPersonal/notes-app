@@ -1,0 +1,18 @@
+import { Badge } from "../../../ui/badge";
+import { Tooltip, TooltipContent, TooltipTrigger } from "../../../ui/tooltip";
+import { Star } from "lucide-react";
+
+export function FavoriteResourceBadge() {
+  return (
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <Badge variant="secondary">
+          <Star className="text-favorite fill-favorite" />
+        </Badge>
+      </TooltipTrigger>
+      <TooltipContent>
+        <p>Marcado como favorito</p>
+      </TooltipContent>
+    </Tooltip>
+  );
+}
