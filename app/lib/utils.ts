@@ -28,3 +28,7 @@ export function arrayFromLength(length: number): { key: string }[] {
 export function randomUUID(): string {
   return v4();
 }
+
+export function randomPercentage(): string {
+  return `${Math.floor(Math.random() * 40) + 50}%`;
+}

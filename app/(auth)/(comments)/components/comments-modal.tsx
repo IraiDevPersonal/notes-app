@@ -1,16 +1,17 @@
 "use client";
 
-import { Button } from "../../../ui/button";
+import { Button } from "@/app/ui/button";
 import {
   Dialog,
+  DialogBody,
   DialogContent,
   DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "../../../ui/dialog";
-import { ResourceSearch } from "../../(resources)/components/resource-search";
+} from "@/app/ui/dialog";
+import { ResourceSearch } from "@/app/(auth)/(resources)/components/resource-search";
 import { CommentForm } from "./comment-form";
 import { CommentList } from "./comment-list";
 import { useState } from "react";
@@ -35,9 +36,9 @@ export function CommentsModal() {
           <DialogDescription></DialogDescription>
           <ResourceSearch className="xl:max-w-full" />
         </DialogHeader>
-        <div className="h-[calc(100vh-24rem)] overflow-y-auto">
+        <DialogBody>
           <CommentList onEdit={() => setComment("hola")} />
-        </div>
+        </DialogBody>
         <DialogFooter className="sm:flex-col gap-y-2">
           <CommentForm
             key={comment}

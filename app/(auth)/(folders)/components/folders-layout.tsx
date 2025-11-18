@@ -1,7 +1,7 @@
-import { ResourceViewModeProvider } from "../../(resources)/context/resource-view-mode.context";
-import { ResourceViewModeSelector } from "../../(resources)/components/resource-view-mode-selector";
-import { FoldersTitle } from "./folders-title";
 import { ResourceSearch } from "../../(resources)/components/resource-search";
+import { ResourceViewModeSelector } from "../../(resources)/components/resource-view-mode-selector";
+import { ResourceViewModeProvider } from "../../(resources)/context/resource-view-mode.context";
+import { FoldersTitle } from "./folders-title";
 
 export function FoldersLayout({
   children,
