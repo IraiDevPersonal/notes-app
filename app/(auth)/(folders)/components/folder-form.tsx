@@ -1,4 +1,3 @@
-import { RESOURCE_FORM_ID } from "@/app/(auth)/(resources)/lib/constants";
 import { Checkbox } from "@/app/ui/checkbox";
 import {
   Field,
@@ -10,10 +9,11 @@ import {
 import { Form } from "@/app/ui/form";
 import { Input } from "@/app/ui/input";
 import { Textarea } from "@/app/ui/textarea";
+import { FOLDER_FORM_ID } from "../lib/constants";
 
 export function FolderForm() {
   return (
-    <Form id={RESOURCE_FORM_ID} className="w-full space-y-2">
+    <Form id={FOLDER_FORM_ID} className="w-full space-y-2">
       <Field>
         <FieldLabel>Nombre</FieldLabel>
         <Input autoFocus placeholder="Nombre de carpeta..." />

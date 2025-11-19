@@ -1,9 +1,9 @@
 import { FolderSymlink, Share2, Star, Trash } from "lucide-react";
-import { ResourceDatetimesBadge } from "../../(resources)/components/resource-datetimes-badge";
-import { OwnerUserBadge } from "../../(user)/components/owner-user-badge";
-import { SharedUsersCountBadge } from "../../(user)/components/shared-users-count-badge";
-import { BackButton } from "../../../ui/back-button";
-import { Button } from "../../../ui/button";
+import { ResourceDatetimesBadge } from "@/app/(auth)/(resources)/components/resource-datetimes-badge";
+import { OwnerUserBadge } from "@/app/(auth)/(user)/components/owner-user-badge";
+import { SharedUsersCountBadge } from "@/app/(auth)/(user)/components/shared-users-count-badge";
+import { BackButton } from "@/app/(auth)/../ui/back-button";
+import { Button } from "@/app/(auth)/../ui/button";
 import { EditNoteModal } from "./edit-note-modal";
 
 export function NoteHeader() {
