@@ -1,9 +1,11 @@
-import { FolderSymlink, Share2, Star, Trash } from "lucide-react";
 import { ResourceDatetimesBadge } from "@/app/(auth)/(resources)/components/resource-datetimes-badge";
 import { OwnerUserBadge } from "@/app/(auth)/(user)/components/owner-user-badge";
 import { SharedUsersCountBadge } from "@/app/(auth)/(user)/components/shared-users-count-badge";
 import { BackButton } from "@/app/(auth)/../ui/back-button";
 import { Button } from "@/app/(auth)/../ui/button";
+import { DeleteDialog } from "@/app/ui/delete-dialog";
+import { FavoriteToggle } from "@/app/ui/favorite-toggle";
+import { FolderSymlink, Share2, Trash } from "lucide-react";
 import { EditNoteModal } from "./edit-note-modal";
 
 export function NoteHeader() {
@@ -38,12 +40,12 @@ function NoteActions() {
       <Button size="icon" variant="ghost" title="Compartir">
         <Share2 />
       </Button>
-      <Button size="icon" variant="ghost" title="Marcar como favorito">
-        <Star />
-      </Button>
-      <Button size="icon" variant="ghost" title="Eliminar">
-        <Trash />
-      </Button>
+      <FavoriteToggle />
+      <DeleteDialog>
+        <Button size="icon" variant="ghost" title="Eliminar">
+          <Trash />
+        </Button>
+      </DeleteDialog>
     </div>
   );
 }

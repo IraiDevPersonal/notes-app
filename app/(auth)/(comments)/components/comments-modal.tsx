@@ -22,7 +22,9 @@ export function CommentsModal() {
 
   const handleOpenChange = (open: boolean) => {
     setOpen(open);
-    setComment("");
+    if (!open) {
+      setComment("");
+    }
   };
 
   return (

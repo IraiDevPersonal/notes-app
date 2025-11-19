@@ -1,4 +1,6 @@
-import { Folder, FolderSymlink, Share2, Star, Trash } from "lucide-react";
+import { DeleteDialog } from "@/app/ui/delete-dialog";
+import { FavoriteToggle } from "@/app/ui/favorite-toggle";
+import { Folder, FolderSymlink, Share2, Trash } from "lucide-react";
 import { CommentsModal } from "../../(comments)/components/comments-modal";
 import { ResourceDatetimesBadge } from "../../(resources)/components/resource-datetimes-badge";
 import { OwnerUserBadge } from "../../(user)/components/owner-user-badge";
@@ -75,12 +77,12 @@ function FolderActions() {
       <Button size="icon" variant="ghost" title="Compartir">
         <Share2 />
       </Button>
-      <Button size="icon" variant="ghost" title="Marcar como favorito">
-        <Star />
-      </Button>
-      <Button size="icon" variant="ghost" title="Eliminar">
-        <Trash />
-      </Button>
+      <FavoriteToggle />
+      <DeleteDialog>
+        <Button size="icon" variant="ghost" title="Eliminar">
+          <Trash />
+        </Button>
+      </DeleteDialog>
     </div>
   );
 }

@@ -1,11 +1,11 @@
 "use client";
 
-import { For } from "../../../ui/for";
-import { Avatar, AvatarFallback, AvatarImage } from "../../../ui/avatar";
-import { OwnerUserBadge } from "../../(user)/components/owner-user-badge";
-import { Button } from "../../../ui/button";
+import { For } from "@/app/ui/for";
+import { Avatar, AvatarFallback, AvatarImage } from "@/app/ui/avatar";
+import { OwnerUserBadge } from "@/app/(auth)/(user)/components/owner-user-badge";
+import { Button } from "@/app/ui/button";
 import { Edit2 } from "lucide-react";
-import { arrayFromLength } from "../../../lib/utils";
+import { arrayFromLength } from "@/app/lib/utils";
 
 type Props = {
   onEdit: () => void;
