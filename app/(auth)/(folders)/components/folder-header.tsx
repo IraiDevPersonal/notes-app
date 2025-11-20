@@ -9,6 +9,7 @@ import { BackButton } from "@/app/(auth)/../ui/back-button";
 import { Button } from "@/app/(auth)/../ui/button";
 import { EditFolderModal } from "./edit-folder-modal";
 import { ShareResourceModal } from "@/app/(auth)/(resources)/components/share-resource-modal";
+import { MoveResourceModal } from "@/app/(auth)/(resources)/components/move-resource-modal";
 
 export function FolderHeader() {
   return (
@@ -72,9 +73,11 @@ function FolderActions() {
   return (
     <div className="ml-auto self-start flex items-center flex-wrap justify-end gap-x-1">
       <EditFolderModal />
-      <Button size="icon" variant="ghost" title="Mover">
-        <FolderSymlink />
-      </Button>
+      <MoveResourceModal resourceTitle="Carpeta 1">
+        <Button size="icon" variant="ghost" title="Mover">
+          <FolderSymlink />
+        </Button>
+      </MoveResourceModal>
       <ShareResourceModal isFolder resourceTitle="Carpeta 1">
         <Button size="icon" variant="ghost" title="Compartir">
           <Share2 />

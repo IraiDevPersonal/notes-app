@@ -8,6 +8,7 @@ import { FavoriteToggle } from "@/app/ui/favorite-toggle";
 import { FolderSymlink, Share2, Trash } from "lucide-react";
 import { EditNoteModal } from "./edit-note-modal";
 import { ShareResourceModal } from "@/app/(auth)/(resources)/components/share-resource-modal";
+import { MoveResourceModal } from "@/app/(auth)/(resources)/components/move-resource-modal";
 
 export function NoteHeader() {
   return (
@@ -35,9 +36,11 @@ function NoteActions() {
   return (
     <div className="ml-auto self-start flex items-center flex-wrap justify-end gap-x-1">
       <EditNoteModal />
-      <Button size="icon" variant="ghost" title="Mover">
-        <FolderSymlink />
-      </Button>
+      <MoveResourceModal resourceTitle="Nota 1">
+        <Button size="icon" variant="ghost" title="Mover">
+          <FolderSymlink />
+        </Button>
+      </MoveResourceModal>
       <ShareResourceModal resourceTitle="Nota 1">
         <Button size="icon" variant="ghost" title="Compartir">
           <Share2 />
