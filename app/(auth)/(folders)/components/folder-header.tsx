@@ -73,7 +73,7 @@ function FolderActions() {
   return (
     <div className="ml-auto self-start flex items-center flex-wrap justify-end gap-x-1">
       <EditFolderModal />
-      <MoveResourceModal resourceTitle="Carpeta 1">
+      <MoveResourceModal isFolder resourceTitle="Carpeta 1">
         <Button size="icon" variant="ghost" title="Mover">
           <FolderSymlink />
         </Button>

@@ -18,5 +18,7 @@
     "lib": "@/app/lib",
     "hooks": "@/app/hooks"
   },
-  "registries": {}
+  "registries": {
+    "@magicui": "https://magicui.design/r/{name}.json"
+  }
 }

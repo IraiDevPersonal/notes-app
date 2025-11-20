@@ -110,17 +110,17 @@ function DialogFooter({ className, ...props }: React.ComponentProps<"div">) {
 
 function DialogBody({
   className,
-  ...props
+  children,
 }: {
   className?: string;
   children: React.ReactNode;
 }) {
   return (
-    <ScrollArea
-      data-slot="dialog-body"
-      className={cn("flex flex-col gap-2 max-h-[calc(100vh-24rem)]", className)}
-      {...props}
-    />
+    <ScrollArea data-slot="dialog-body">
+      <div className={cn("max-h-[calc(100vh-24rem)]", className)}>
+        {children}
+      </div>
+    </ScrollArea>
   );
 }
 
@@ -174,28 +174,34 @@ function DialogDescription({
 }
 
 function Modal({
+  confirmButton,
   description,
+  classNames,
   children,
   trigger,
   title,
-  confirmButton,
   ...props
 }: React.ComponentProps<typeof DialogPrimitive.Root> & {
   confirmButton: React.ReactNode;
   trigger: React.ReactNode;
   description: string;
   title: string;
+  classNames?: Partial<{
+    header: string;
+    body: string;
+    footer: string;
+  }>;
 }) {
   return (
     <Dialog {...props}>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
       <DialogContent>
-        <DialogHeader>
+        <DialogHeader className={classNames?.header}>
           <DialogTitle>{title}</DialogTitle>
           <DialogDescription>{description}</DialogDescription>
         </DialogHeader>
-        <DialogBody>{children}</DialogBody>
-        <DialogFooter>
+        <DialogBody className={classNames?.body}>{children}</DialogBody>
+        <DialogFooter className={classNames?.footer}>
           <DialogClose asChild>
             <Button variant="secondary">Cancelar</Button>
           </DialogClose>
