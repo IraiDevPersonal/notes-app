@@ -117,9 +117,7 @@ function DialogBody({
 }) {
   return (
     <ScrollArea data-slot="dialog-body">
-      <div className={cn("max-h-[calc(100vh-24rem)]", className)}>
-        {children}
-      </div>
+      <div className={className}>{children}</div>
     </ScrollArea>
   );
 }
@@ -175,6 +173,7 @@ function DialogDescription({
 
 function Modal({
   confirmButton,
+  footer: customFooter,
   description,
   classNames,
   children,
@@ -182,7 +181,8 @@ function Modal({
   title,
   ...props
 }: React.ComponentProps<typeof DialogPrimitive.Root> & {
-  confirmButton: React.ReactNode;
+  footer?: React.ReactNode;
+  confirmButton?: React.ReactNode;
   trigger: React.ReactNode;
   description: string;
   title: string;
@@ -201,12 +201,14 @@ function Modal({
           <DialogDescription>{description}</DialogDescription>
         </DialogHeader>
         <DialogBody className={classNames?.body}>{children}</DialogBody>
-        <DialogFooter className={classNames?.footer}>
-          <DialogClose asChild>
-            <Button variant="secondary">Cancelar</Button>
-          </DialogClose>
-          {confirmButton}
-        </DialogFooter>
+        {customFooter ?? (
+          <DialogFooter className={classNames?.footer}>
+            <DialogClose asChild>
+              <Button variant="secondary">Cancelar</Button>
+            </DialogClose>
+            {confirmButton}
+          </DialogFooter>
+        )}
       </DialogContent>
     </Dialog>
   );

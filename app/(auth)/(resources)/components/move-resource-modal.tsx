@@ -26,14 +26,16 @@ export function MoveResourceModal({
     setSelectedFolder(null);
   };
 
+  const description = `Seleccione el destino al que desea mover la ${
+    isFolder ? "carpeta" : "nota"
+  } ${resourceTitle}`;
+
   return (
     <Modal
       open={open}
       trigger={children}
+      description={description}
       onOpenChange={handleOpenChange}
-      description={`Seleccione el destino al que desea mover la ${
-        isFolder ? "carpeta" : "nota"
-      } ${resourceTitle}`}
       title={isFolder ? "Mover Carpeta" : "Mover Nota"}
       classNames={{
         body: "space-y-4",

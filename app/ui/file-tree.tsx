@@ -247,13 +247,9 @@ const Folder = forwardRef<
         className="relative h-full overflow-hidden"
       >
         <div
-          className={cn(
-            `flex items-center gap-2 rounded-md text-sm`,
-            className,
-            {
-              "cursor-not-allowed opacity-50": !isSelectable,
-            }
-          )}
+          className={cn(`flex items-center text-sm`, className, {
+            "cursor-not-allowed opacity-50": !isSelectable,
+          })}
         >
           {children && (
             <button
@@ -261,7 +257,7 @@ const Folder = forwardRef<
                 handleExpand(value);
               }}
               className={cn(
-                "transition-all hover:text-muted-foreground",
+                "transition-all hover:text-muted-foreground size-6 grid place-content-center",
                 expandedItems?.includes(value) ? "rotate-180" : ""
               )}
             >

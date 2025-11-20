@@ -38,7 +38,7 @@ export function CommentsModal() {
           <DialogDescription></DialogDescription>
           <ResourceSearch className="xl:max-w-full" />
         </DialogHeader>
-        <DialogBody>
+        <DialogBody className="max-h-[50dvh]">
           <CommentList onEdit={() => setComment("hola")} />
         </DialogBody>
         <DialogFooter className="sm:flex-col gap-y-2">
