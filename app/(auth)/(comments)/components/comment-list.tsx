@@ -1,11 +1,11 @@
 "use client";
 
-import { For } from "@/app/ui/for";
-import { Avatar, AvatarFallback, AvatarImage } from "@/app/ui/avatar";
 import { OwnerUserBadge } from "@/app/(auth)/(user)/components/owner-user-badge";
-import { Button } from "@/app/ui/button";
-import { Edit2 } from "lucide-react";
 import { arrayFromLength } from "@/app/lib/utils";
+import { Button } from "@/app/ui/button";
+import { For } from "@/app/ui/for";
+import { Edit2 } from "lucide-react";
+import { UserAvatar } from "@/app/(auth)/(user)/components/user-avatar";
 
 type Props = {
   onEdit: () => void;
@@ -18,10 +18,7 @@ export function CommentList({ onEdit }: Props) {
         {(_, idx) => (
           <li className="bg-card border rounded-2xl p-4 space-y-2">
             <div className="flex items-center gap-2">
-              <Avatar>
-                <AvatarImage src="https://github.com/shadcn.png" />
-                <AvatarFallback>JD</AvatarFallback>
-              </Avatar>
+              <UserAvatar />
               <OwnerUserBadge
                 fullName="John Doe"
                 userName="johndoe"

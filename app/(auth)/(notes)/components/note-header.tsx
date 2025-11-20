@@ -7,6 +7,7 @@ import { DeleteDialog } from "@/app/ui/delete-dialog";
 import { FavoriteToggle } from "@/app/ui/favorite-toggle";
 import { FolderSymlink, Share2, Trash } from "lucide-react";
 import { EditNoteModal } from "./edit-note-modal";
+import { ShareResourceModal } from "@/app/(auth)/(resources)/components/share-resource-modal";
 
 export function NoteHeader() {
   return (
@@ -37,9 +38,11 @@ function NoteActions() {
       <Button size="icon" variant="ghost" title="Mover">
         <FolderSymlink />
       </Button>
-      <Button size="icon" variant="ghost" title="Compartir">
-        <Share2 />
-      </Button>
+      <ShareResourceModal resourceTitle="Nota 1">
+        <Button size="icon" variant="ghost" title="Compartir">
+          <Share2 />
+        </Button>
+      </ShareResourceModal>
       <FavoriteToggle />
       <DeleteDialog>
         <Button size="icon" variant="ghost" title="Eliminar">

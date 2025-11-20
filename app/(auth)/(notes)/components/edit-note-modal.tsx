@@ -1,6 +1,5 @@
 "use client";
 
-import { FolderForm } from "@/app/(auth)/(folders)/components/folder-form";
 import { Button } from "@/app/ui/button";
 import {
   Dialog,
@@ -15,6 +14,7 @@ import {
 import { Edit2 } from "lucide-react";
 import { useState } from "react";
 import { NOTE_FORM_ID } from "../lib/constants";
+import { NoteForm } from "./note-form";
 
 export function EditNoteModal() {
   const [open, setOpen] = useState(false);
@@ -36,7 +36,7 @@ export function EditNoteModal() {
           <DialogDescription>Introduce los datos de la nota.</DialogDescription>
         </DialogHeader>
         <DialogBody>
-          <FolderForm />
+          <NoteForm />
         </DialogBody>
         <DialogFormActions
           formId={NOTE_FORM_ID}

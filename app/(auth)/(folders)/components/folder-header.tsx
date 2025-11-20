@@ -1,13 +1,14 @@
 import { DeleteDialog } from "@/app/ui/delete-dialog";
 import { FavoriteToggle } from "@/app/ui/favorite-toggle";
 import { Folder, FolderSymlink, Share2, Trash } from "lucide-react";
-import { CommentsModal } from "../../(comments)/components/comments-modal";
-import { ResourceDatetimesBadge } from "../../(resources)/components/resource-datetimes-badge";
-import { OwnerUserBadge } from "../../(user)/components/owner-user-badge";
-import { SharedUsersCountBadge } from "../../(user)/components/shared-users-count-badge";
-import { BackButton } from "../../../ui/back-button";
-import { Button } from "../../../ui/button";
+import { CommentsModal } from "@/app/(auth)/(comments)/components/comments-modal";
+import { ResourceDatetimesBadge } from "@/app/(auth)/(resources)/components/resource-datetimes-badge";
+import { OwnerUserBadge } from "@/app/(auth)/(user)/components/owner-user-badge";
+import { SharedUsersCountBadge } from "@/app/(auth)/(user)/components/shared-users-count-badge";
+import { BackButton } from "@/app/(auth)/../ui/back-button";
+import { Button } from "@/app/(auth)/../ui/button";
 import { EditFolderModal } from "./edit-folder-modal";
+import { ShareResourceModal } from "@/app/(auth)/(resources)/components/share-resource-modal";
 
 export function FolderHeader() {
   return (
@@ -74,9 +75,11 @@ function FolderActions() {
       <Button size="icon" variant="ghost" title="Mover">
         <FolderSymlink />
       </Button>
-      <Button size="icon" variant="ghost" title="Compartir">
-        <Share2 />
-      </Button>
+      <ShareResourceModal isFolder resourceTitle="Carpeta 1">
+        <Button size="icon" variant="ghost" title="Compartir">
+          <Share2 />
+        </Button>
+      </ShareResourceModal>
       <FavoriteToggle />
       <DeleteDialog>
         <Button size="icon" variant="ghost" title="Eliminar">

@@ -72,7 +72,7 @@ function DialogContent({
           <DialogPrimitive.Close
             data-slot="dialog-close"
             className={cn(
-              "ring-offset-background focus:ring-ring data-[state=open]:bg-accent data-[state=open]:text-muted-foreground absolute top-4 right-4 rounded-xs opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-hidden disabled:pointer-events-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+              "ring-offset-background focus:ring-ring data-[state=open]:bg-accent data-[state=open]:text-muted-foreground absolute top-5 right-5 rounded-xs opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-hidden disabled:pointer-events-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
               buttonVariants({ variant: "ghost", size: "icon" })
             )}
           >
@@ -151,7 +151,10 @@ function DialogTitle({
   return (
     <DialogPrimitive.Title
       data-slot="dialog-title"
-      className={cn("text-xl leading-none font-semibold mb-4", className)}
+      className={cn(
+        "text-xl leading-none font-semibold mb-4 -mt-2.5",
+        className
+      )}
       {...props}
     />
   );
@@ -170,6 +173,39 @@ function DialogDescription({
   );
 }
 
+function Modal({
+  description,
+  children,
+  trigger,
+  title,
+  confirmButton,
+  ...props
+}: React.ComponentProps<typeof DialogPrimitive.Root> & {
+  confirmButton: React.ReactNode;
+  trigger: React.ReactNode;
+  description: string;
+  title: string;
+}) {
+  return (
+    <Dialog {...props}>
+      <DialogTrigger asChild>{trigger}</DialogTrigger>
+      <DialogContent>
+        <DialogHeader>
+          <DialogTitle>{title}</DialogTitle>
+          <DialogDescription>{description}</DialogDescription>
+        </DialogHeader>
+        <DialogBody>{children}</DialogBody>
+        <DialogFooter>
+          <DialogClose asChild>
+            <Button variant="secondary">Cancelar</Button>
+          </DialogClose>
+          {confirmButton}
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  );
+}
+
 export {
   Dialog,
   DialogClose,
@@ -183,4 +219,5 @@ export {
   DialogTrigger,
   DialogBody,
   DialogFormActions,
+  Modal,
 };

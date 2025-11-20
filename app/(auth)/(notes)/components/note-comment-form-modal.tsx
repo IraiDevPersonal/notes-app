@@ -33,7 +33,7 @@ export function NoteCommentFormModal({ comment, resetForm }: Props) {
           <Plus />
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-2xl w-full">
+      <DialogContent className="sm:max-w-xl w-full">
         <DialogHeader>
           <DialogTitle>
             {comment?.description ? "Editar" : "Agregar"} Comentario

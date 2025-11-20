@@ -8,7 +8,6 @@ import {
 } from "@/app/ui/field";
 import { Form } from "@/app/ui/form";
 import { Input } from "@/app/ui/input";
-import { Textarea } from "@/app/ui/textarea";
 import { NOTE_FORM_ID } from "../lib/constants";
 
 export function NoteForm() {
@@ -19,14 +18,14 @@ export function NoteForm() {
         <Input autoFocus placeholder="Título de nota..." />
         {/* <FieldError>error error</FieldError> */}
       </Field>
-      <Field>
+      {/* <Field>
         <FieldLabel>Contenido</FieldLabel>
         <Textarea
           className="resize-none min-h-28"
           placeholder="Contenido de la nota..."
         />
-        {/* <FieldError>error error</FieldError> */}
-      </Field>
+        <FieldError>error error</FieldError>
+      </Field> */}
       <FieldLabel htmlFor="private-flag">
         <Field orientation="horizontal">
           <Checkbox id="private-flag" />

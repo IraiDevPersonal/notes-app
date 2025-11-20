@@ -1,5 +1,5 @@
-import { Badge } from "../../../ui/badge";
-import { Tooltip, TooltipContent, TooltipTrigger } from "../../../ui/tooltip";
+import { Badge } from "@/app/ui/badge";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/app/ui/tooltip";
 import { Star } from "lucide-react";
 
 export function FavoriteResourceBadge() {
