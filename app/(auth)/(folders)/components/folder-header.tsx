@@ -10,6 +10,7 @@ import { Button } from "@/app/(auth)/../ui/button";
 import { EditFolderModal } from "./edit-folder-modal";
 import { ShareResourceModal } from "@/app/(auth)/(resources)/components/share-resource-modal";
 import { MoveResourceModal } from "@/app/(auth)/(resources)/components/move-resource-modal";
+import { randomUUID } from "@/app/lib/utils";
 
 export function FolderHeader() {
   return (
@@ -73,12 +74,18 @@ function FolderActions() {
   return (
     <div className="ml-auto self-start flex items-center flex-wrap justify-end gap-x-1">
       <EditFolderModal />
-      <MoveResourceModal isFolder resourceTitle="Carpeta 1">
+      <MoveResourceModal
+        resource={{ id: randomUUID(), title: "Carpeta 1" }}
+        type="folder"
+      >
         <Button size="icon" variant="ghost" title="Mover">
           <FolderSymlink />
         </Button>
       </MoveResourceModal>
-      <ShareResourceModal isFolder resourceTitle="Carpeta 1">
+      <ShareResourceModal
+        resource={{ id: randomUUID(), title: "Carpeta 1" }}
+        type="folder"
+      >
         <Button size="icon" variant="ghost" title="Compartir">
           <Share2 />
         </Button>

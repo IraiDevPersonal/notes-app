@@ -1,3 +1,5 @@
+"use client";
+
 import { Trash } from "lucide-react";
 import { Button } from "./button";
 import {
@@ -10,14 +12,25 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "./dialog";
+import { useState } from "react";
 
 type Props = {
+  onCloseEffect?: (open: false) => void;
   children: React.ReactNode;
 };
 
-export function DeleteDialog({ children }: Props) {
+export function DeleteDialog({ children, onCloseEffect }: Props) {
+  const [open, setOpen] = useState(false);
+
+  const handleOpenChange = (open: boolean) => {
+    setOpen(open);
+    if (!open) {
+      onCloseEffect?.(false);
+    }
+  };
+
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={handleOpenChange}>
       <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent>
         <DialogHeader>

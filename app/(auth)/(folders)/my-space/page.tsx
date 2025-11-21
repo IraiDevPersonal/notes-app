@@ -1,4 +1,4 @@
-import { ResourceView } from "../../(resources)/components/resource-view";
+import { ResourceView } from "@/app/(auth)/(resources)/components/resource-view";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

@@ -1,6 +1,7 @@
 "use client";
 
-import { Button } from "../../../ui/button";
+import { Button } from "@/app/ui/button";
+import { DeleteDialog } from "@/app/ui/delete-dialog";
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -9,7 +10,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "../../../ui/dropdown-menu";
+} from "@/app/ui/dropdown-menu";
 import {
   ArrowRight,
   EllipsisVertical,
@@ -21,65 +22,82 @@ import {
 import Link from "next/link";
 import { useImperativeHandle, useState } from "react";
 import { ResourceCardDropdownMenuRefObject } from "../types";
+import { ResourceModel, ResourceType } from "../types/resource";
+import { MoveResourceModal } from "./move-resource-modal";
+import { ShareResourceModal } from "./share-resource-modal";
 
 type Props = {
   ref?: React.RefObject<ResourceCardDropdownMenuRefObject>;
-  type: "note" | "folder";
-  resourceId: string;
+  resource: ResourceModel;
+  type: ResourceType;
 };
 
-export function ResourceCardDropdownMenu({ resourceId, ref, type }: Props) {
+export function ResourceCardDropdownMenu({ resource, ref, type }: Props) {
   const [isFavorite, setIsFavorite] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
   useImperativeHandle(ref, () => ({
     onContextMenu: () => {
-      setIsOpen(true);
+      setOpen(true);
     },
   }));
 
-  const href = `/${type}/${resourceId}`;
-
   return (
-    <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
+    <DropdownMenu open={open} onOpenChange={setOpen}>
       <DropdownMenuTrigger asChild>
         <Button variant="secondary" size="icon-sm">
           <EllipsisVertical />
         </Button>
       </DropdownMenuTrigger>
+
       <DropdownMenuContent align="end" className="w-56">
         <DropdownMenuItem asChild>
-          <Link href={href}>
+          <Link href={`/${type}/${resource.id}`}>
             <ArrowRight />
             Ir
           </Link>
         </DropdownMenuItem>
+
         <DropdownMenuSeparator />
         <DropdownMenuLabel>Acciones</DropdownMenuLabel>
+
         <DropdownMenuCheckboxItem
-          checked={isFavorite}
-          onCheckedChange={setIsFavorite}
-          icon={<Star />}
           className="data-[state=checked]:[&_svg]:fill-favorite data-[state=checked]:text-favorite"
+          onCheckedChange={setIsFavorite}
+          checked={isFavorite}
+          icon={<Star />}
         >
           {isFavorite ? "Quitar favorito" : "Agregar favorito"}
         </DropdownMenuCheckboxItem>
-        <DropdownMenuItem asChild>
-          <Link href={`${href}?open-move-modal=true`}>
+
+        <MoveResourceModal
+          resource={resource}
+          onCloseEffect={setOpen}
+          type={type}
+        >
+          <DropdownMenuItem preventDefaultOnSelect>
             <FolderSymlink />
             Mover
-          </Link>
-        </DropdownMenuItem>
-        <DropdownMenuItem asChild>
-          <Link href={`${href}?open-share-modal=true`}>
+          </DropdownMenuItem>
+        </MoveResourceModal>
+
+        <ShareResourceModal
+          resource={resource}
+          onCloseEffect={setOpen}
+          type={type}
+        >
+          <DropdownMenuItem preventDefaultOnSelect>
             <Share2 />
             Compartir
-          </Link>
-        </DropdownMenuItem>
-        <DropdownMenuItem variant="destructive">
-          <Trash />
-          Eliminar
-        </DropdownMenuItem>
+          </DropdownMenuItem>
+        </ShareResourceModal>
+
+        <DeleteDialog onCloseEffect={setOpen}>
+          <DropdownMenuItem preventDefaultOnSelect variant="destructive">
+            <Trash />
+            Eliminar
+          </DropdownMenuItem>
+        </DeleteDialog>
       </DropdownMenuContent>
     </DropdownMenu>
   );

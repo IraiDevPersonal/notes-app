@@ -6,40 +6,45 @@ import { Folder, Tree } from "@/app/ui/file-tree";
 import { ScrollArea } from "@/app/ui/scroll-area";
 import { FolderSymlink } from "lucide-react";
 import { useState } from "react";
+import { ResourceModel, ResourceType } from "../types/resource";
 
 type Props = {
-  children: React.ReactNode;
-  isFolder?: boolean;
-  resourceTitle: string;
+  onCloseEffect?: (open: false) => void;
+  children?: React.ReactNode;
+  resource: ResourceModel;
+  type?: ResourceType;
 };
 
 export function MoveResourceModal({
+  onCloseEffect,
+  type = "note",
+  resource,
   children,
-  isFolder,
-  resourceTitle,
 }: Props) {
   const [open, setOpen] = useState(false);
   const [selectedFolder, setSelectedFolder] = useState<string | null>(null);
 
   const handleOpenChange = (open: boolean) => {
-    setOpen(open);
     setSelectedFolder(null);
+    setOpen(open);
+    if (!open) {
+      onCloseEffect?.(false);
+    }
   };
 
+  const isFolder = type === "folder";
   const description = `Seleccione el destino al que desea mover la ${
     isFolder ? "carpeta" : "nota"
-  } ${resourceTitle}`;
+  }: "${resource.title}"`;
 
   return (
     <Modal
-      open={open}
-      trigger={children}
-      description={description}
-      onOpenChange={handleOpenChange}
       title={isFolder ? "Mover Carpeta" : "Mover Nota"}
-      classNames={{
-        body: "space-y-4",
-      }}
+      classNames={{ body: "space-y-4" }}
+      onOpenChange={handleOpenChange}
+      description={description}
+      trigger={children}
+      open={open}
       confirmButton={
         <Button>
           <FolderSymlink />

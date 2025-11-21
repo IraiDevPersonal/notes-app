@@ -6,17 +6,17 @@ import {
   CardContent,
   CardHeader,
   CardTitle,
-} from "../../../ui/card";
-import { SharedUsersCountBadge } from "../../(user)/components/shared-users-count-badge";
+} from "@/app/ui/card";
+import { SharedUsersCountBadge } from "@/app/(auth)/(user)/components/shared-users-count-badge";
 import { Folder } from "lucide-react";
 import { FolderCardDropdownMenu } from "./folder-card-dropdown-menu";
-import { OwnerUserBadge } from "../../(user)/components/owner-user-badge";
-import { ResourceDatetimesBadge } from "../../(resources)/components/resource-datetimes-badge";
-import { ViewMode } from "../../(resources)/types/view-mode";
-import { ResourceCommentsCountBadge } from "../../(resources)/components/resource-comments-count-badge";
-import { useResourceCardDropdownMenuRefHandler } from "../../(resources)/hooks/use-resource-card-dropdwon-menu-ref-handler";
-import { FavoriteResourceBadge } from "../../(resources)/components/favorite-resource-badge";
-import { cn } from "../../../lib/utils";
+import { OwnerUserBadge } from "@/app/(auth)/(user)/components/owner-user-badge";
+import { ResourceDatetimesBadge } from "@/app/(auth)/(resources)/components/resource-datetimes-badge";
+import { ViewMode } from "@/app/(auth)/(resources)/types/view-mode";
+import { ResourceCommentsCountBadge } from "@/app/(auth)/(resources)/components/resource-comments-count-badge";
+import { useResourceCardDropdownMenuRefHandler } from "@/app/(auth)/(resources)/hooks/use-resource-card-dropdwon-menu-ref-handler";
+import { FavoriteResourceBadge } from "@/app/(auth)/(resources)/components/favorite-resource-badge";
+import { cn } from "@/app/lib/utils";
 
 type Props = {
   viewMode?: ViewMode;

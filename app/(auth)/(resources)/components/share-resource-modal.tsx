@@ -1,3 +1,5 @@
+"use client";
+
 import { arrayFromLength } from "@/app/lib/utils";
 import { Button } from "@/app/ui/button";
 import { Modal } from "@/app/ui/dialog";
@@ -14,25 +16,41 @@ import { Plus, Share2 } from "lucide-react";
 import { UserAvatar } from "@/app/(auth)/(user)/components/user-avatar";
 import { ScrollArea } from "@/app/ui/scroll-area";
 import { Checkbox } from "@/app/ui/checkbox";
+import { ResourceModel, ResourceType } from "../types/resource";
+import { useState } from "react";
 
 type Props = {
+  onCloseEffect?: (open: false) => void;
   children: React.ReactNode;
-  isFolder?: boolean;
-  resourceTitle: string;
+  resource: ResourceModel;
+  type?: ResourceType;
 };
 
 export function ShareResourceModal({
+  onCloseEffect,
+  type = "note",
+  resource,
   children,
-  resourceTitle,
-  isFolder,
 }: Props) {
-  const description = `Compartir (${resourceTitle}) con otros usuarios.`;
+  const [open, setOpen] = useState(false);
+
+  const handleOpenChange = (open: boolean) => {
+    setOpen(open);
+    if (!open) {
+      onCloseEffect?.(false);
+    }
+  };
+
+  const isFolder = type === "folder";
+  const description = `Compartir: "${resource.title}" con otros usuarios.`;
 
   return (
     <Modal
-      trigger={children}
-      description={description}
       title={isFolder ? "Compartir Carpeta" : "Compartir Nota"}
+      onOpenChange={handleOpenChange}
+      description={description}
+      trigger={children}
+      open={open}
       confirmButton={
         <Button>
           <Share2 />

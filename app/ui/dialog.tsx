@@ -181,9 +181,9 @@ function Modal({
   title,
   ...props
 }: React.ComponentProps<typeof DialogPrimitive.Root> & {
-  footer?: React.ReactNode;
   confirmButton?: React.ReactNode;
-  trigger: React.ReactNode;
+  trigger?: React.ReactNode;
+  footer?: React.ReactNode;
   description: string;
   title: string;
   classNames?: Partial<{
@@ -194,7 +194,7 @@ function Modal({
 }) {
   return (
     <Dialog {...props}>
-      <DialogTrigger asChild>{trigger}</DialogTrigger>
+      {trigger && <DialogTrigger asChild>{trigger}</DialogTrigger>}
       <DialogContent>
         <DialogHeader className={classNames?.header}>
           <DialogTitle>{title}</DialogTitle>

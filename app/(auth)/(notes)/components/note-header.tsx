@@ -9,6 +9,7 @@ import { FolderSymlink, Share2, Trash } from "lucide-react";
 import { EditNoteModal } from "./edit-note-modal";
 import { ShareResourceModal } from "@/app/(auth)/(resources)/components/share-resource-modal";
 import { MoveResourceModal } from "@/app/(auth)/(resources)/components/move-resource-modal";
+import { randomUUID } from "@/app/lib/utils";
 
 export function NoteHeader() {
   return (
@@ -36,12 +37,18 @@ function NoteActions() {
   return (
     <div className="ml-auto self-start flex items-center flex-wrap justify-end gap-x-1">
       <EditNoteModal />
-      <MoveResourceModal resourceTitle="Nota 1">
+      <MoveResourceModal
+        resource={{ id: randomUUID(), title: "Nota 1" }}
+        type="note"
+      >
         <Button size="icon" variant="ghost" title="Mover">
           <FolderSymlink />
         </Button>
       </MoveResourceModal>
-      <ShareResourceModal resourceTitle="Nota 1">
+      <ShareResourceModal
+        resource={{ id: randomUUID(), title: "Nota 1" }}
+        type="note"
+      >
         <Button size="icon" variant="ghost" title="Compartir">
           <Share2 />
         </Button>

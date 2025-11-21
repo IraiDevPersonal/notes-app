@@ -253,6 +253,7 @@ const Folder = forwardRef<
         >
           {children && (
             <button
+              tabIndex={-1}
               onClick={() => {
                 handleExpand(value);
               }}
