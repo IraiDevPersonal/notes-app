@@ -117,7 +117,7 @@ function DialogBody({
 }) {
   return (
     <ScrollArea data-slot="dialog-body">
-      <div className={className}>{children}</div>
+      <div className={cn("p-0.5", className)}>{children}</div>
     </ScrollArea>
   );
 }

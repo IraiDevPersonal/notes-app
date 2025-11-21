@@ -34,9 +34,7 @@ export function CreateNoteModal() {
       <DialogContent>
         <DialogHeader>
           <DialogTitle>Crear Nota</DialogTitle>
-          <DialogDescription>
-            Introduce el título y el contenido de la nota.
-          </DialogDescription>
+          <DialogDescription>Introduce los datos de la nota.</DialogDescription>
         </DialogHeader>
         <DialogBody>
           <NoteForm />
