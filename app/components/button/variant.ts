@@ -3,7 +3,7 @@
 import { cva } from "class-variance-authority";
 
 export const buttonVariant = cva(
-  "font-medium flex gap-2 items-center justify-center transition-colors duration-300 relative overflow-hidden min-w-fit",
+  "font-medium flex gap-2 items-center justify-center transition-colors duration-300 overflow-hidden min-w-fit relative",
   {
     variants: {
       variant: {

@@ -1,8 +1,31 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-@import "./light-theme.css";
 
 @theme {
+  --color-background: var(--color-stone-100);
+  --color-background-foreground: var(--color-stone-50);
+  --color-foreground: var(--color-stone-900);
+  --color-input: var(--color-stone-300);
+  --color-muted: var(--color-stone-200);
+  --color-muted-foreground: var(--color-stone-400);
+  --color-primary-foreground: var(--color-stone-50);
+  --color-primary: #00f5ba;
+  --color-primary-50: #e7fff8;
+  --color-primary-100: #c6ffec;
+  --color-primary-200: #92ffe0;
+  --color-primary-300: #4dffd4;
+  --color-primary-400: #00f5ba;
+  --color-primary-500: #00e8ae;
+  --color-primary-600: #00be90;
+  --color-primary-700: #009878;
+  --color-primary-800: #007860;
+  --color-primary-900: #006250;
+  --color-primary-950: #00382f;
+  --color-danger: var(--color-red-500);
+  --color-success: var(--color-green-500);
+
+  --breakpoint-xs: 30rem;
+
   --animate-ripple: ripple 500ms ease-out forwards;
 
   @keyframes ripple {
