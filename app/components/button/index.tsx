@@ -2,6 +2,7 @@
 
 import { VariantProps } from "class-variance-authority";
 import { buttonVariant } from "./variant";
+import { cn } from "@/lib/utils";
 
 type ButtonProps = Omit<
   React.ButtonHTMLAttributes<HTMLButtonElement>,
@@ -47,14 +48,16 @@ export function Button({
     <button
       disabled={disabled || undefined}
       onClick={handleClick}
-      className={buttonVariant({
-        fullRounded,
-        fullWidth,
-        className,
-        disabled,
-        variant,
-        size,
-      })}
+      className={cn(
+        buttonVariant({
+          fullRounded,
+          fullWidth,
+          disabled,
+          variant,
+          size,
+        }),
+        className
+      )}
       {...props}
     />
   );
