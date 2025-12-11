@@ -1,0 +1,21 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "./light-theme.css";
+
+@theme {
+  --animate-ripple: ripple 500ms ease-out forwards;
+
+  @keyframes ripple {
+    0% {
+      transform: scale(0);
+      opacity: 0.75;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100% {
+      transform: scale(1.5);
+      opacity: 0;
+    }
+  }
+}
