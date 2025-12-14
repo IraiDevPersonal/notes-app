@@ -20,14 +20,16 @@ export function Input({
     <input
       type="text"
       disabled={disabled || undefined}
-      className={inputVariant({
-        success: error ? false : success,
-        className: cn("h-9", className),
-        normal: !error && !success,
-        fullWidth,
-        disabled,
-        error,
-      })}
+      className={cn(
+        inputVariant({
+          success: error ? false : success,
+          fullWidth,
+          disabled,
+          error,
+        }),
+        "h-9",
+        className
+      )}
       {...props}
     />
   );
