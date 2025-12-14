@@ -47,6 +47,13 @@
   --shadow-2xl: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0); */
 
   --animate-ripple: ripple 500ms ease-out forwards;
+
+  /* --transition-discrete: {
+    transition-behavior: allow-discrete;
+    @starting-style {
+      opacity: 0;
+    }
+  } */
 }
 
 @keyframes ripple {
@@ -106,4 +113,11 @@
   --shadow-lg: var(--shadow-lg);
   --shadow-xl: var(--shadow-xl);
   --shadow-2xl: var(--shadow-2xl); */
+}
+
+.transition-discrete {
+  transition-behavior: allow-discrete;
+  @starting-style {
+    opacity: 0;
+  }
 }
