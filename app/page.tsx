@@ -11,11 +11,39 @@ export default function Home() {
       <main className="p-20 h-dvh space-y-4 w-full">
         <h1>Notes App</h1>
         <Textarea disabled fullWidth placeholder="Agregar Nota" />
-        <div className="flex w-full justify-between">
-          <Input placeholder="Agregar Nota" defaultValue="hola mundo" />
-          <SidebarTrigger />
-        </div>
-        <Button>
+        <Input fullWidth placeholder="Agregar Nota" defaultValue="hola mundo" />
+        <Input
+          fullWidth
+          placeholder="Agregar Nota"
+          defaultValue="hola mundo"
+          error
+        />
+        <Input
+          fullWidth
+          placeholder="Agregar Nota"
+          defaultValue="hola mundo"
+          success
+        />
+        <Input
+          fullWidth
+          placeholder="Agregar Nota"
+          defaultValue="hola mundo"
+          disabled
+        />
+        <SidebarTrigger />
+        <Button fullWidth>
+          <Plus />
+          Agregar Nota
+        </Button>
+        <Button variant={"danger"} fullWidth>
+          <Plus />
+          Agregar Nota
+        </Button>
+        <Button variant={"secondary"} fullWidth>
+          <Plus />
+          Agregar Nota
+        </Button>
+        <Button disabled variant={"secondary"} fullWidth>
           <Plus />
           Agregar Nota
         </Button>
