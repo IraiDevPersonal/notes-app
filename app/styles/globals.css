@@ -4,9 +4,9 @@
 /* @custom-variant dark (&:is(.dark *)); */
 
 :root {
-  --background: oklch(0 0 0);
+  --background: oklch(14.298% 0.01308 284.619);
   --foreground: oklch(0.9328 0.0025 228.7857);
-  --box: oklch(0.2097 0.008 274.5332);
+  --box: oklch(17.136% 0.01243 285.001);
   --box-foreground: oklch(0.8853 0 0);
   --primary: oklch(0.6692 0.1607 245.011);
   --primary-foreground: oklch(1 0 0);
