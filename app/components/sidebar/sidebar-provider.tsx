@@ -1,7 +1,7 @@
 "use client";
 
 import { useMediaQuery } from "@/hooks/use-media-query";
-import React, { use, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 
 type SidebarContextProps = {
   setOpen: (open?: boolean) => void;
@@ -23,6 +23,14 @@ export function SidebarProvider({ children }: SidebarProviderProps) {
   const handleToggleOpenState = (open?: boolean) => {
     setOpen((prevValue) => open ?? !prevValue);
   };
+
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [open]);
 
   return (
     <SidebarContext

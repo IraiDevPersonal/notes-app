@@ -1,35 +1,37 @@
-import { Plus } from "lucide-react";
 import { Button } from "@/components/button";
 import { Input } from "@/components/input";
-import {
-  Sidebar,
-  SidebarContent,
-  SidebarFooter,
-  SidebarHeader,
-  SidebarMenuTitle,
-  SidebarProvider,
-  SidebarTrigger,
-} from "@/components/sidebar";
+import { Sidebar } from "@/components/sidebar";
 import { Textarea } from "@/components/textarea";
+import { Plus } from "lucide-react";
+import { NavLink } from "./components/navlink";
 
 export default function Home() {
   return (
-    <SidebarProvider>
+    <Sidebar.Provider>
       <Sidebar>
-        <SidebarHeader>
+        <Sidebar.Header>
           <span>Notes App</span>
-        </SidebarHeader>
-        <SidebarContent>
-          <SidebarMenuTitle>Menu</SidebarMenuTitle>
-          {Array.from({ length: 100 }).map((_, index) => (
-            <p key={index} className="text-justify">
-              {`Notes App Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus, culpa temporibus veritatis dignissimos officiis officia ratione, exercitationem aut illo reiciendis optio tempora atque voluptas magnam quidem dolor sapiente aspernatur ipsam.`}
-            </p>
-          ))}
-        </SidebarContent>
-        <SidebarFooter>
+        </Sidebar.Header>
+        <Sidebar.Content>
+          <Sidebar.MenuTitle>Menu</Sidebar.MenuTitle>
+          <Sidebar.Menu>
+            {Array.from({ length: 4 }).map((_, index) => (
+              <Sidebar.MenuItem key={index}>
+                {(cls) => (
+                  <NavLink
+                    href={`/${index === 0 ? "" : index + 1}`}
+                    classNames={cls}
+                  >
+                    Item {index + 1}
+                  </NavLink>
+                )}
+              </Sidebar.MenuItem>
+            ))}
+          </Sidebar.Menu>
+        </Sidebar.Content>
+        <Sidebar.Footer>
           <span>Notes App</span>
-        </SidebarFooter>
+        </Sidebar.Footer>
       </Sidebar>
       <main className="p-20 h-dvh space-y-4 w-full">
         <h1>Notes App</h1>
@@ -53,7 +55,7 @@ export default function Home() {
           defaultValue="hola mundo"
           disabled
         />
-        <SidebarTrigger />
+        <Sidebar.Trigger />
         <Button fullWidth>
           <Plus />
           Agregar Nota
@@ -66,11 +68,15 @@ export default function Home() {
           <Plus />
           Agregar Nota
         </Button>
-        <Button disabled variant={"secondary"} fullWidth>
+        <Button variant={"text"} fullWidth>
+          <Plus />
+          Agregar Nota
+        </Button>
+        <Button disabled variant={"text"} fullWidth>
           <Plus />
           Agregar Nota
         </Button>
       </main>
-    </SidebarProvider>
+    </Sidebar.Provider>
   );
 }
