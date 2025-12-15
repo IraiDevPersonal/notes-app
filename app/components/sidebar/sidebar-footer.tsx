@@ -9,7 +9,7 @@ export function SidebarFooter({ children, className }: SidebarFooterProps) {
   return (
     <footer
       aria-label="Sidebar Footer"
-      className={cn("flex flex-col gap-y-2", className)}
+      className={cn("flex flex-col gap-y-2 px-2", className)}
     >
       {children}
     </footer>

@@ -10,7 +10,7 @@ export function SidebarContent({ children, className }: SidebarContentProps) {
   return (
     <ScrollArea
       aria-label="Sidebar Content"
-      className={cn("flex flex-col gap-y-2 grow", className)}
+      className={cn("flex flex-col gap-y-2 grow px-2", className)}
     >
       {children}
     </ScrollArea>

@@ -7,8 +7,9 @@ export const buttonVariant = cva(
       variant: {
         primary:
           "bg-primary text-primary-foreground not-disabled:hover:bg-primary/80 focus-visible:outline-ring",
+        text: "text-secondary bg-transparent not-disabled:hover:bg-secondary/6 focus-visible:outline-secondary",
         secondary:
-          "text-secondary bg-transparent not-disabled:hover:bg-secondary/6 focus-visible:outline-secondary",
+          "text-secondary bg-secondary/7 not-disabled:hover:bg-secondary/10 focus-visible:outline-secondary",
         danger:
           "text-danger-foreground bg-danger not-disabled:hover:bg-danger/80 focus-visible:outline-danger",
       },
