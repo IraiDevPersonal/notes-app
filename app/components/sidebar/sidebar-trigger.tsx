@@ -3,7 +3,7 @@
 import { VariantProps } from "class-variance-authority";
 import { PanelRightClose, X } from "lucide-react";
 import { buttonVariant } from "../button/variant";
-import { Button } from "../button";
+import { Button } from "../button/button";
 import { useSidebar } from "./";
 import { cn } from "@/lib/utils";
 

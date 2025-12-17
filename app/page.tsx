@@ -1,9 +1,10 @@
+import { Plus } from "lucide-react";
 import { Button } from "@/components/button";
 import { Input } from "@/components/input";
 import { Sidebar } from "@/components/sidebar";
 import { Textarea } from "@/components/textarea";
-import { Plus } from "lucide-react";
-import { NavLink } from "./components/navlink";
+import { NavLink } from "@/components/navlink";
+import { Select } from "@/components/select";
 
 export default function Home() {
   return (
@@ -49,12 +50,22 @@ export default function Home() {
           defaultValue="hola mundo"
           success
         />
-        <Input
-          fullWidth
-          placeholder="Agregar Nota"
-          defaultValue="hola mundo"
-          disabled
-        />
+        <div className="flex gap-2">
+          <Input
+            fullWidth
+            placeholder="Agregar Nota"
+            defaultValue="hola mundo"
+            disabled
+          />
+          <Select
+            fullWidth
+            options={[
+              { label: "Opcion 1", value: "1" },
+              { label: "Opcion 2", value: "2" },
+              { label: "Opcion 3", value: "3" },
+            ]}
+          />
+        </div>
         <Sidebar.Trigger />
         <Button fullWidth>
           <Plus />
