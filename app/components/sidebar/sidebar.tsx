@@ -2,6 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { useSidebar } from "./sidebar-provider";
+import { Portal } from "../portal";
 import "./style.css";
 
 type SidebarProps = {
@@ -22,7 +23,8 @@ export function Sidebar({ children }: SidebarProps) {
       >
         <div className="flex flex-col h-full gap-y-8">{children}</div>
       </aside>
-      <div
+      <Portal
+        present={open}
         data-open={open}
         aria-label="Sidebar Overlay"
         onClick={() => setOpen(false)}

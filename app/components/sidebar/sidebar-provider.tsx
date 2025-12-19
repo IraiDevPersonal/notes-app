@@ -1,7 +1,8 @@
 "use client";
 
+import { useLockBodyScroll } from "@/hooks/use-lock-body-scroll";
 import { useMediaQuery } from "@/hooks/use-media-query";
-import React, { use, useEffect, useState } from "react";
+import React, { use, useState } from "react";
 
 type SidebarContextProps = {
   setOpen: (open?: boolean) => void;
@@ -18,19 +19,12 @@ type SidebarProviderProps = {
 
 export function SidebarProvider({ children }: SidebarProviderProps) {
   const [open, setOpen] = useState<boolean>(false);
-  useMediaQuery("(max-width: 48rem)", () => setOpen(false));
+  useMediaQuery("(width >= 48rem)", () => setOpen(false));
+  useLockBodyScroll(open);
 
   const handleToggleOpenState = (open?: boolean) => {
     setOpen((prevValue) => open ?? !prevValue);
   };
-
-  useEffect(() => {
-    if (open) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-  }, [open]);
 
   return (
     <SidebarContext
