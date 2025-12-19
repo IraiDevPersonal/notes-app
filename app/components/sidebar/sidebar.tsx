@@ -3,7 +3,7 @@
 import { cn } from "@/lib/utils";
 import { useSidebar } from "./sidebar-provider";
 import { Portal } from "../portal";
-import "./style.css";
+import "./styles.css";
 
 type SidebarProps = {
   children: React.ReactNode;
@@ -24,7 +24,7 @@ export function Sidebar({ children }: SidebarProps) {
         <div className="flex flex-col h-full gap-y-8">{children}</div>
       </aside>
       <Portal
-        present={open}
+        visible={open}
         data-open={open}
         aria-label="Sidebar Overlay"
         onClick={() => setOpen(false)}

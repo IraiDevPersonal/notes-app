@@ -3,23 +3,23 @@ import { createPortal } from "react-dom";
 
 type PortalProps = {
   containerEl?: HTMLElement | null;
-  present?: boolean;
+  visible?: boolean;
 } & React.ComponentPropsWithRef<"div">;
 
 export function Portal({
-  children,
-  containerEl,
-  present,
   onTransitionEnd,
+  containerEl,
+  children,
+  visible,
   ...props
 }: PortalProps) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    if (present) {
+    if (visible) {
       setMounted(true);
     }
-  }, [present]);
+  }, [visible]);
 
   if (!mounted) return null;
 
@@ -27,7 +27,7 @@ export function Portal({
     <div
       {...props}
       onTransitionEnd={(e) => {
-        if (!present) {
+        if (!visible) {
           setMounted(false);
         }
         onTransitionEnd?.(e);

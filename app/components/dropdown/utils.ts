@@ -23,3 +23,27 @@ export function getTransformOrigin(placement: DropdownPlacement): string {
 
   return transformMap[placement];
 }
+
+export function getTransformOriginProperty(
+  placement: DropdownPlacement
+): string {
+  const originMap: Record<DropdownPlacement, string> = {
+    bottom: "top center",
+    "bottom-start": "top left",
+    "bottom-end": "top right",
+
+    top: "bottom center",
+    "top-start": "bottom left",
+    "top-end": "bottom right",
+
+    right: "left center",
+    "right-start": "left top",
+    "right-end": "left bottom",
+
+    left: "right center",
+    "left-start": "right top",
+    "left-end": "right bottom",
+  };
+
+  return originMap[placement];
+}
