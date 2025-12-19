@@ -1,11 +1,11 @@
 "use client";
 
-import { useRef, useCallback, useEffect, useState } from "react";
 import { useClickOutside } from "@/hooks/use-click-outside";
-import { CreatePortal } from "../create-portal";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { Portal } from "../portal";
 import { useDropdownContext } from "./dropdown-context";
-import { getTransformOrigin, DROPDOWN_CONTENT_GAP } from "./utils";
 import { DropdownPlacement, DropdownPosition } from "./type";
+import { DROPDOWN_CONTENT_GAP, getTransformOrigin } from "./utils";
 
 type DropdownContentProps = {
   placement?: DropdownPlacement;
@@ -31,21 +31,20 @@ export function DropdownContent({
   );
 
   return (
-    <CreatePortal>
-      <div
-        ref={dropdownRef}
-        data-open={open}
-        style={{
-          position: "absolute",
-          top: `${position.top}px`,
-          left: `${position.left}px`,
-          transform: getTransformOrigin(placement),
-        }}
-        className="my-1 z-30 data-[open=true]:block data-[open=false]:hidden min-w-36 w-max transition-discrete transition-all data-[open=true]:scale-100 scale-95 data-[open=true]:opacity-100 opacity-0 bg-box rounded border border-border p-1"
-      >
-        <ul className="rounded-sm overflow-hidden">{children}</ul>
-      </div>
-    </CreatePortal>
+    <Portal
+      data-open={open}
+      ref={dropdownRef}
+      present={open}
+      style={{
+        position: "absolute",
+        top: `${position.top}px`,
+        left: `${position.left}px`,
+        transform: getTransformOrigin(placement),
+      }}
+      className="my-1 z-30 data-[open=true]:block data-[open=false]:hidden min-w-36 w-max transition-discrete transition-all data-[open=true]:scale-100 scale-95 data-[open=true]:opacity-100 opacity-0 bg-box rounded border border-border p-1"
+    >
+      <ul className="rounded-sm overflow-hidden">{children}</ul>
+    </Portal>
   );
 }
 
@@ -136,14 +135,12 @@ function useDropdown(
   }, [containerRef, placement]);
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     calculatePosition();
   }, [calculatePosition]);
 
   useEffect(() => {
     if (!open || !containerRef.current) return;
 
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     calculatePosition();
 
     window.addEventListener("scroll", calculatePosition);
