@@ -108,9 +108,9 @@
   --shadow-2xl: var(--shadow-2xl); */
 }
 
-.transition-discrete {
+/* .transition-discrete {
   transition-behavior: allow-discrete;
   @starting-style {
     opacity: 0;
   }
-}
+} */

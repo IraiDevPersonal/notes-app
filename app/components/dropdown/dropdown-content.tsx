@@ -6,6 +6,7 @@ import { Portal } from "../portal";
 import { useDropdownContext } from "./dropdown-context";
 import { DropdownPlacement, DropdownPosition } from "./type";
 import { DROPDOWN_CONTENT_GAP, getTransformOrigin } from "./utils";
+import "./styles.css";
 
 type DropdownContentProps = {
   placement?: DropdownPlacement;
@@ -41,7 +42,7 @@ export function DropdownContent({
         left: `${position.left}px`,
         transform: getTransformOrigin(placement),
       }}
-      className="my-1 z-30 data-[open=true]:block data-[open=false]:hidden min-w-36 w-max transition-discrete transition-all data-[open=true]:scale-100 scale-95 data-[open=true]:opacity-100 opacity-0 bg-box rounded border border-border p-1"
+      className="my-1 z-30 data-[open=true]:block data-[open=false]:hidden min-w-36 w-max transition-discrete portal-starting-style transition-[opacity,scale,display] data-[open=true]:scale-100 scale-95 data-[open=true]:opacity-100 opacity-0 bg-box rounded border border-border p-1"
     >
       <ul className="rounded-sm overflow-hidden">{children}</ul>
     </Portal>
@@ -70,7 +71,6 @@ function useDropdown(
     let left = 0;
 
     switch (placement) {
-      // BOTTOM
       case "bottom":
         top = rect.bottom + scrollY + DROPDOWN_CONTENT_GAP;
         left = rect.left + scrollX + rect.width / 2;
@@ -84,7 +84,6 @@ function useDropdown(
         left = rect.right + scrollX;
         break;
 
-      // TOP
       case "top":
         top = rect.top + scrollY - DROPDOWN_CONTENT_GAP;
         left = rect.left + scrollX + rect.width / 2;
@@ -98,7 +97,6 @@ function useDropdown(
         left = rect.right + scrollX;
         break;
 
-      // RIGHT
       case "right":
         top = rect.top + scrollY + rect.height / 2;
         left = rect.right + scrollX + DROPDOWN_CONTENT_GAP;
@@ -112,7 +110,6 @@ function useDropdown(
         left = rect.right + scrollX + DROPDOWN_CONTENT_GAP;
         break;
 
-      // LEFT
       case "left":
         top = rect.top + scrollY + rect.height / 2;
         left = rect.left + scrollX - DROPDOWN_CONTENT_GAP;
