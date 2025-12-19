@@ -5,7 +5,7 @@ import { Select } from "@/components/select";
 import { Sidebar } from "@/components/sidebar";
 import { Textarea } from "@/components/textarea";
 import { Plus } from "lucide-react";
-import { Dropdown } from "./components/dropdown";
+import { Test } from "./components/test";
 
 export default function Home() {
   return (
@@ -39,15 +39,7 @@ export default function Home() {
       </Sidebar>
       <main className="p-20 h-dvh space-y-4 w-full">
         <h1>Notes App</h1>
-        <Dropdown.Provider>
-          <Dropdown>
-            <Dropdown.Trigger>
-              <Plus />
-              Agregar Nota
-            </Dropdown.Trigger>
-            <Dropdown.Content placement="bottom-start" />
-          </Dropdown>
-        </Dropdown.Provider>
+        <Test />
         <Textarea disabled fullWidth placeholder="Agregar Nota" />
         <Input fullWidth placeholder="Agregar Nota" defaultValue="hola mundo" />
         <Input

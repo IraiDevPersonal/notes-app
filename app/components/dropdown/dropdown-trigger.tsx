@@ -1,14 +1,14 @@
 "use client";
 
 import { Button, ButtonProps } from "../button";
-import { useDropdown } from "./dropdown-provider";
+import { useDropdownContext } from "./dropdown-context";
 
 type DropdownTriggerProps = {
   children: React.ReactNode;
 } & Pick<ButtonProps, "onClick" | "variant" | "size">;
 
 export function DropdownTrigger({ onClick, ...props }: DropdownTriggerProps) {
-  const { setOpen, triggerRef } = useDropdown();
+  const { onOpenChange: setOpen, triggerRef } = useDropdownContext();
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     setOpen();

@@ -24,8 +24,8 @@ select:open::picker-icon {
   opacity: 0;
   scale: 0.98;
   transform-origin: top;
-  transition: opacity 200ms ease-out, scale 200ms ease-out,
-    display 200ms allow-discrete, overlay 200ms allow-discrete;
+  transition: opacity 300ms ease-out, scale 300ms ease-out,
+    display 300ms allow-discrete, overlay 300ms allow-discrete;
 }
 
 select:open::picker(select) {

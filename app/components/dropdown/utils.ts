@@ -1,4 +1,6 @@
-import { DropdownPlacement } from "../hooks/use-dropdown-content";
+import { DropdownPlacement } from "./type";
+
+export const DROPDOWN_CONTENT_GAP = 4;
 
 export function getTransformOrigin(placement: DropdownPlacement): string {
   const transformMap: Record<DropdownPlacement, string> = {

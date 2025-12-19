@@ -2,7 +2,7 @@ import { VariantProps } from "class-variance-authority";
 import { inputVariant } from "./variant";
 import { cn } from "@/lib/utils";
 
-type InputProps = Omit<React.ComponentProps<"input">, "disabled"> &
+export type InputProps = Omit<React.ComponentProps<"input">, "disabled"> &
   VariantProps<typeof inputVariant>;
 
 export function Input({
