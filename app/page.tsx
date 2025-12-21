@@ -6,6 +6,9 @@ import { Sidebar } from "@/components/sidebar";
 import { Textarea } from "@/components/textarea";
 import { Plus } from "lucide-react";
 import { Test } from "./components/test";
+import { Label } from "./components/label";
+import { HelperText } from "./components/helper-text";
+import { Chip } from "./components/chip";
 
 export default function Home() {
   return (
@@ -39,15 +42,50 @@ export default function Home() {
       </Sidebar>
       <main className="p-20 h-dvh space-y-4 w-full">
         <h1>Notes App</h1>
+        <Chip size="sm" variant="outline">
+          <Plus />
+          Outline
+        </Chip>
+        <Chip>
+          <Plus />
+          Default
+        </Chip>
+        <Chip size="lg" variant="success">
+          <Plus />
+          Success
+        </Chip>
+        <Chip size="lg" variant="danger">
+          <Plus />
+          Danger
+        </Chip>
         <Test />
-        <Textarea disabled fullWidth placeholder="Agregar Nota" />
-        <Input fullWidth placeholder="Agregar Nota" defaultValue="hola mundo" />
-        <Input
-          fullWidth
-          placeholder="Agregar Nota"
-          defaultValue="hola mundo"
-          error
-        />
+        <div>
+          <Label htmlFor="textarea">Textarea</Label>
+          <Textarea disabled fullWidth placeholder="Agregar Nota" />
+        </div>
+        <div className="flex flex-col gap-y-1">
+          <Label htmlFor="input">Input</Label>
+          <Input
+            id="input"
+            fullWidth
+            placeholder="Agregar Nota"
+            defaultValue="hola mundo"
+          />
+          <HelperText>Helper Text</HelperText>
+        </div>
+        <div className="flex flex-col gap-y-1">
+          <Label htmlFor="input" error>
+            Input
+          </Label>
+          <Input
+            error
+            id="input"
+            fullWidth
+            placeholder="Agregar Nota"
+            defaultValue="hola mundo"
+          />
+          <HelperText error>Helper Text</HelperText>
+        </div>
         <Input
           fullWidth
           placeholder="Agregar Nota"
