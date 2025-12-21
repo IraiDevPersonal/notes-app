@@ -4,7 +4,10 @@ import { VariantProps } from "class-variance-authority";
 import { buttonVariant } from "./variant";
 import { cn } from "@/lib/utils";
 
-export type ButtonProps = Omit<React.ComponentProps<"button">, "disabled"> &
+export type ButtonProps = Omit<
+  React.ComponentPropsWithRef<"button">,
+  "disabled"
+> &
   VariantProps<typeof buttonVariant>;
 
 export function Button({

@@ -2,7 +2,7 @@ import { VariantProps } from "class-variance-authority";
 import { inputVariant } from "../input";
 import { cn } from "@/lib/utils";
 
-type TextareaProps = Omit<React.ComponentProps<"textarea">, "disabled"> &
+type TextareaProps = Omit<React.ComponentPropsWithRef<"textarea">, "disabled"> &
   VariantProps<typeof inputVariant>;
 
 export function Textarea({

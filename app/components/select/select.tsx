@@ -12,7 +12,7 @@ type SelectOption = {
 
 type SelectProps = {
   options?: Array<SelectOption>;
-} & Omit<React.ComponentProps<"select">, "disabled" | "children"> &
+} & Omit<React.ComponentPropsWithRef<"select">, "disabled" | "children"> &
   Pick<InputProps, "fullWidth" | "disabled" | "success" | "error">;
 
 export function Select({

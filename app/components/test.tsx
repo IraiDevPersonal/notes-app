@@ -5,12 +5,15 @@ import { useState } from "react";
 import { Button } from "./button";
 import { Dropdown } from "./dropdown";
 import { Modal } from "./modal";
+import { Checkbox } from "./checkbox";
 
 export function Test() {
   const [open, setOpen] = useState(false);
 
   return (
     <div className="flex flex-col items-center gap-2">
+      <Checkbox />
+
       <Modal>
         <Modal.Overlay />
         <Modal.Trigger>Abrir Modal.</Modal.Trigger>

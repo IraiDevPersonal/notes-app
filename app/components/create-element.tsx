@@ -3,7 +3,7 @@ import React from "react";
 type CreateElementProps<T extends React.ElementType> = {
   children: React.ReactNode;
   as: T;
-} & React.ComponentProps<T>;
+} & React.ComponentPropsWithRef<T>;
 
 export function CreateElement<T extends React.ElementType>({
   children,
